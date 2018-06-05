@@ -6,7 +6,7 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<entry key="url" type="xstring" value="/Users/hrimthusar/Google Drive/Fakultet/IP/Seminarski/DataMiningYouTube/youtube-new/GBvideos.csv"/>
+<entry key="url" type="xstring" value="knime://knime.workflow/../GBvideos.csv"/>
 <entry key="colDelimiter" type="xstring" value=","/>
 <entry key="rowDelimiter" type="xstring" value="%%00010"/>
 <entry key="quote" type="xstring" value="&quot;"/>
@@ -46,6 +46,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="d03ba892-b82a-49b3-9b75-6eca877249f8"/>
+<entry key="file_store_id" type="xstring" value="a339907c-e23b-4e3c-9f8c-cbd253ad3800"/>
 </config>
 </config>
