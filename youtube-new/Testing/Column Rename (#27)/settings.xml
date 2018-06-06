@@ -6,48 +6,18 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<config key="removeCollectionCol_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="removeCollectionCol" type="xboolean" value="true"/>
-<config key="skipMissingValues_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="skipMissingValues" type="xboolean" value="false"/>
-<config key="enableHilite_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="enableHilite" type="xboolean" value="false"/>
-<config key="columnNames_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_columnfilter"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<config key="columnNames">
-<entry key="filter-type" type="xstring" value="STANDARD"/>
-<config key="included_names">
-<entry key="array-size" type="xint" value="0"/>
-</config>
-<config key="excluded_names">
-<entry key="array-size" type="xint" value="0"/>
-</config>
-<entry key="enforce_option" type="xstring" value="EnforceExclusion"/>
-<config key="name_pattern">
-<entry key="pattern" type="xstring" value=""/>
-<entry key="type" type="xstring" value="Wildcard"/>
-<entry key="caseSensitive" type="xboolean" value="true"/>
-</config>
-<config key="datatype">
-<config key="typelist"/>
+<config key="all_columns">
+<config key="0">
+<entry key="old_column_name" type="xstring" value="title"/>
+<entry key="new_column_name" type="xstring" value="category"/>
+<entry key="new_column_type" type="xint" value="0"/>
 </config>
 </config>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="EXECUTED"/>
-<entry key="factory" type="xstring" value="org.knime.base.node.preproc.ungroup.UngroupNodeFactory"/>
-<entry key="node-name" type="xstring" value="Ungroup"/>
+<entry key="factory" type="xstring" value="org.knime.base.node.preproc.rename.RenameNodeFactory"/>
+<entry key="node-name" type="xstring" value="Column Rename"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
 <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base"/>
 <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
@@ -57,7 +27,7 @@
 <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
 <entry key="node-feature-version" type="xstring" value="3.5.3.v201804041546"/>
 <config key="factory_settings"/>
-<entry key="name" type="xstring" value="Ungroup"/>
+<entry key="name" type="xstring" value="Column Rename"/>
 <entry key="hasContent" type="xboolean" value="true"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
@@ -65,12 +35,12 @@
 <entry key="index" type="xint" value="1"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 32, Cols: 1"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 32, Cols: 2"/>
 <entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="be82d59c-eb6c-4e79-83fe-8d25da1502c3"/>
+<entry key="file_store_id" type="xstring" value="bbe4d46f-a8f5-4acb-ba1c-302b9d02bffa"/>
 </config>
 </config>

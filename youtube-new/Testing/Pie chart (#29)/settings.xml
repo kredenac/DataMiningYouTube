@@ -16,34 +16,26 @@
 <entry key="EnabledStatus" type="xboolean" value="false"/>
 </config>
 <entry key="noOfRows" type="xint" value="2500"/>
-<config key="HistogramXColName_Internals">
+<config key="PieColName_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="HistogramXColName" type="xstring" value="category_id"/>
+<entry key="PieColName" type="xstring" value="category"/>
 <config key="aggrColumn_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_colorColumns"/>
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<config key="aggrColumn">
-<config key="colorColumnNames">
-<entry key="array-size" type="xint" value="0"/>
-</config>
-</config>
-<config key="noOfBins_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
+<entry key="aggrColumn" type="xstring" value="views"/>
+<config key="aggrMethod_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="noOfBins" type="xint" value="43"/>
+<entry key="aggrMethod" type="xstring" value="SUM"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="CONFIGURED"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="8 columns without a valid domain will be ignored. In order to calculate the domain use the Nominal Values or Domain Calculator node."/>
-</config>
-<entry key="factory" type="xstring" value="org.knime.base.node.viz.histogram.node.FixedColumnHistogramNodeFactory"/>
-<entry key="node-name" type="xstring" value="Histogram"/>
+<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="factory" type="xstring" value="org.knime.base.node.viz.pie.node.fixed.FixedPieNodeFactory"/>
+<entry key="node-name" type="xstring" value="Pie chart"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
 <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base"/>
 <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
@@ -53,12 +45,12 @@
 <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
 <entry key="node-feature-version" type="xstring" value="3.5.3.v201804041546"/>
 <config key="factory_settings"/>
-<entry key="name" type="xstring" value="Histogram"/>
-<entry key="hasContent" type="xboolean" value="false"/>
+<entry key="name" type="xstring" value="Pie chart"/>
+<entry key="hasContent" type="xboolean" value="true"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports"/>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" value="336b60a7-d4e1-44db-8fb1-3989a62c9f69"/>
 </config>
 </config>

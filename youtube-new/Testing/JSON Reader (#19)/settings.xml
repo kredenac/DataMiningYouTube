@@ -11,7 +11,7 @@
 <entry key="select.part" type="xboolean" value="false"/>
 <entry key="json.path" type="xstring" value="items"/>
 <entry key="fail.if.not.found" type="xboolean" value="true"/>
-<entry key="json.location" type="xstring" value="C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\US_category_id.json"/>
+<entry key="json.location" type="xstring" value="knime://knime.workflow/../US_category_id.json"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="EXECUTED"/>
@@ -40,6 +40,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="1cb22604-ed25-488b-892c-a1fcb34b40a7"/>
+<entry key="file_store_id" type="xstring" value="577e2cde-d446-4f57-9fbb-8af43ae11099"/>
 </config>
 </config>
