@@ -10,7 +10,7 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="end" type="xint" value="50500"/>
+<entry key="end" type="xint" value="2500"/>
 <config key="max_nominal_values_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -19,8 +19,12 @@
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="EXECUTED"/>
-<entry key="factory" type="xstring" value="org.knime.base.node.viz.plotter.scatter.ScatterPlotterNodeFactory"/>
-<entry key="node-name" type="xstring" value="Scatter Plot"/>
+<config key="nodecontainer_message">
+<entry key="type" type="xstring" value="WARNING"/>
+<entry key="message" type="xstring" value="Only the first 2500 rows are displayed."/>
+</config>
+<entry key="factory" type="xstring" value="org.knime.base.node.viz.plotter.scattermatrix.ScatterMatrixNodeFactory"/>
+<entry key="node-name" type="xstring" value="Scatter Matrix"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
 <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base"/>
 <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
@@ -30,12 +34,12 @@
 <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
 <entry key="node-feature-version" type="xstring" value="3.5.3.v201804041546"/>
 <config key="factory_settings"/>
-<entry key="name" type="xstring" value="Scatter Plot"/>
+<entry key="name" type="xstring" value="Scatter Matrix"/>
 <entry key="hasContent" type="xboolean" value="true"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports"/>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="56507b14-dc5c-4456-a76f-6f9a69b5e3a1"/>
+<entry key="file_store_id" type="xstring" value="2c996f5d-c7ad-48a5-9a72-4623a0cb1b1d"/>
 </config>
 </config>
