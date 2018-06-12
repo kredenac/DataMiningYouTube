@@ -20,24 +20,30 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="HistogramXColName" type="xstring" value="views"/>
+<entry key="HistogramXColName" type="xstring" value="category"/>
 <config key="aggrColumn_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_colorColumns"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <config key="aggrColumn">
 <config key="colorColumnNames">
-<entry key="array-size" type="xint" value="0"/>
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="views"/>
 </config>
+<entry key="views" type="xint" value="-65536"/>
 </config>
 <config key="noOfBins_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="noOfBins" type="xint" value="20"/>
+<entry key="noOfBins" type="xint" value="43"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="IDLE"/>
+<config key="nodecontainer_message">
+<entry key="type" type="xstring" value="WARNING"/>
+<entry key="message" type="xstring" value="Binning column has invalid or no domain"/>
+</config>
 <entry key="factory" type="xstring" value="org.knime.base.node.viz.histogram.node.FixedColumnHistogramNodeFactory"/>
 <entry key="node-name" type="xstring" value="Histogram"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
@@ -50,11 +56,11 @@
 <entry key="node-feature-version" type="xstring" value="3.5.3.v201804041546"/>
 <config key="factory_settings"/>
 <entry key="name" type="xstring" value="Histogram"/>
-<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports"/>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="6268e49b-29a7-40f8-88b0-8783925ee4a8"/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>
