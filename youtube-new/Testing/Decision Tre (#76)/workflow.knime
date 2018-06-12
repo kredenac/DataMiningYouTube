@@ -4,6 +4,12 @@
 <entry key="created_by_nightly" type="xboolean" value="false"/>
 <entry key="version" type="xstring" value="3.1.0"/>
 <entry key="name" type="xstring" value="Decision Tree"/>
+<config key="authorInformation">
+<entry key="authored-by" type="xstring" value="&lt;unknown&gt;"/>
+<entry key="authored-when" type="xstring" value="1970-01-01 01:00:00 +0100"/>
+<entry key="lastEdited-by" type="xstring" isnull="true" value=""/>
+<entry key="lastEdited-when" type="xstring" isnull="true" value=""/>
+</config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="CONFIGURED"/>
 <config key="workflow_credentials"/>
@@ -19,8 +25,8 @@
 <entry key="array-size" type="xint" value="4"/>
 <entry key="0" type="xint" value="150"/>
 <entry key="1" type="xint" value="180"/>
-<entry key="2" type="xint" value="72"/>
-<entry key="3" type="xint" value="89"/>
+<entry key="2" type="xint" value="80"/>
+<entry key="3" type="xint" value="93"/>
 </config>
 </config>
 </config>
@@ -35,8 +41,8 @@
 <entry key="array-size" type="xint" value="4"/>
 <entry key="0" type="xint" value="230"/>
 <entry key="1" type="xint" value="120"/>
-<entry key="2" type="xint" value="79"/>
-<entry key="3" type="xint" value="89"/>
+<entry key="2" type="xint" value="84"/>
+<entry key="3" type="xint" value="93"/>
 </config>
 </config>
 </config>
@@ -52,7 +58,7 @@
 <entry key="0" type="xint" value="330"/>
 <entry key="1" type="xint" value="120"/>
 <entry key="2" type="xint" value="50"/>
-<entry key="3" type="xint" value="76"/>
+<entry key="3" type="xint" value="78"/>
 </config>
 </config>
 </config>
@@ -67,8 +73,8 @@
 <entry key="array-size" type="xint" value="4"/>
 <entry key="0" type="xint" value="230"/>
 <entry key="1" type="xint" value="240"/>
-<entry key="2" type="xint" value="79"/>
-<entry key="3" type="xint" value="89"/>
+<entry key="2" type="xint" value="84"/>
+<entry key="3" type="xint" value="93"/>
 </config>
 </config>
 </config>
@@ -84,7 +90,7 @@
 <entry key="0" type="xint" value="330"/>
 <entry key="1" type="xint" value="240"/>
 <entry key="2" type="xint" value="50"/>
-<entry key="3" type="xint" value="76"/>
+<entry key="3" type="xint" value="78"/>
 </config>
 </config>
 </config>
@@ -151,5 +157,14 @@
 </config>
 </config>
 </config>
+</config>
+<config key="workflow_editor_settings">
+<entry key="workflow.editor.snapToGrid" type="xboolean" value="true"/>
+<entry key="workflow.editor.ShowGrid" type="xboolean" value="true"/>
+<entry key="workflow.editor.gridX" type="xint" value="20"/>
+<entry key="workflow.editor.gridY" type="xint" value="20"/>
+<entry key="workflow.editor.zoomLevel" type="xdouble" value="1.0"/>
+<entry key="workflow.editor.curvedConnections" type="xboolean" value="false"/>
+<entry key="workflow.editor.connectionWidth" type="xint" value="1"/>
 </config>
 </config>
