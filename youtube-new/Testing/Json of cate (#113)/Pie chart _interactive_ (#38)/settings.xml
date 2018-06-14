@@ -10,36 +10,46 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="allRows" type="xboolean" value="true"/>
+<entry key="allRows" type="xboolean" value="false"/>
 <config key="noOfRows_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
-<entry key="EnabledStatus" type="xboolean" value="false"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="noOfRows" type="xint" value="2500"/>
-<config key="HistogramXColName_Internals">
+<config key="PieColName_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="HistogramXColName" type="xstring" value="views"/>
+<entry key="PieColName" type="xstring" value="category"/>
 <config key="aggrColumn_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_colorColumns"/>
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<config key="aggrColumn">
-<config key="colorColumnNames">
-<entry key="array-size" type="xint" value="0"/>
-</config>
-</config>
-<config key="noOfBins_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
+<entry key="aggrColumn" type="xstring" value="Mean(title_word_count)"/>
+<config key="aggrMethod_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="noOfBins" type="xint" value="20"/>
+<entry key="aggrMethod" type="xstring" value="SUM"/>
+</config>
+<config key="nodeAnnotation">
+<entry key="text" type="xstring" value="title%%00013%%00010"/>
+<entry key="bgcolor" type="xint" value="16777215"/>
+<entry key="x-coordinate" type="xint" value="967"/>
+<entry key="y-coordinate" type="xint" value="339"/>
+<entry key="width" type="xint" value="106"/>
+<entry key="height" type="xint" value="30"/>
+<entry key="alignment" type="xstring" value="CENTER"/>
+<entry key="borderSize" type="xint" value="0"/>
+<entry key="borderColor" type="xint" value="16777215"/>
+<entry key="defFontSize" type="xint" value="9"/>
+<entry key="annotation-version" type="xint" value="20151123"/>
+<config key="styles"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="EXECUTED"/>
-<entry key="factory" type="xstring" value="org.knime.base.node.viz.histogram.node.FixedColumnHistogramNodeFactory"/>
-<entry key="node-name" type="xstring" value="Histogram"/>
+<entry key="factory" type="xstring" value="org.knime.base.node.viz.pie.node.interactive.InteractivePieNodeFactory"/>
+<entry key="node-name" type="xstring" value="Pie chart (interactive)"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
 <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base"/>
 <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
@@ -49,12 +59,12 @@
 <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
 <entry key="node-feature-version" type="xstring" value="3.5.3.v201804041546"/>
 <config key="factory_settings"/>
-<entry key="name" type="xstring" value="Histogram"/>
+<entry key="name" type="xstring" value="Pie chart (interactive)"/>
 <entry key="hasContent" type="xboolean" value="true"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports"/>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="6268e49b-29a7-40f8-88b0-8783925ee4a8"/>
+<entry key="file_store_id" type="xstring" value="b5fabef4-0b64-4efa-a2a3-e8c1fb879a43"/>
 </config>
 </config>

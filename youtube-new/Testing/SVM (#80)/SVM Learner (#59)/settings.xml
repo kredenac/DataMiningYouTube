@@ -50,10 +50,6 @@
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="CONFIGURED"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="Rejecting 1 column(s) due to incompatible type: [video_id]"/>
-</config>
 <entry key="factory" type="xstring" value="org.knime.base.node.mine.svm.learner.SVMLearnerNodeFactory2"/>
 <entry key="node-name" type="xstring" value="SVM Learner"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>

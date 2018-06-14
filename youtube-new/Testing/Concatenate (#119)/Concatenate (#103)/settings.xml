@@ -6,51 +6,16 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<config key="colFilter_possVals">
-<entry key="filter-type" type="xstring" value="STANDARD"/>
-<config key="included_names">
-<entry key="array-size" type="xint" value="0"/>
-</config>
-<config key="excluded_names">
-<entry key="array-size" type="xint" value="0"/>
-</config>
-<entry key="enforce_option" type="xstring" value="EnforceInclusion"/>
-<config key="name_pattern">
-<entry key="pattern" type="xstring" value=""/>
-<entry key="type" type="xstring" value="Wildcard"/>
-<entry key="caseSensitive" type="xboolean" value="true"/>
-</config>
-<config key="datatype">
-<config key="typelist"/>
-</config>
-</config>
-<config key="colFilter_minMax">
-<entry key="filter-type" type="xstring" value="STANDARD"/>
-<config key="included_names">
-<entry key="array-size" type="xint" value="1"/>
-<entry key="0" type="xstring" value="views"/>
-</config>
-<config key="excluded_names">
-<entry key="array-size" type="xint" value="0"/>
-</config>
-<entry key="enforce_option" type="xstring" value="EnforceInclusion"/>
-<config key="name_pattern">
-<entry key="pattern" type="xstring" value=""/>
-<entry key="type" type="xstring" value="Wildcard"/>
-<entry key="caseSensitive" type="xboolean" value="true"/>
-</config>
-<config key="datatype">
-<config key="typelist"/>
-</config>
-</config>
-<entry key="max_poss_values" type="xint" value="60"/>
-<entry key="possible_values_unselected_retain" type="xboolean" value="true"/>
-<entry key="min_max_unselected_retain" type="xboolean" value="true"/>
+<entry key="fail_on_duplicates" type="xboolean" value="false"/>
+<entry key="append_suffix" type="xboolean" value="true"/>
+<entry key="intersection_of_columns" type="xboolean" value="false"/>
+<entry key="suffix" type="xstring" value="_dup"/>
+<entry key="enable_hiliting" type="xboolean" value="false"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="EXECUTED"/>
-<entry key="factory" type="xstring" value="org.knime.base.node.preproc.domain.dialog2.DomainNodeFactory"/>
-<entry key="node-name" type="xstring" value="Domain Calculator"/>
+<entry key="factory" type="xstring" value="org.knime.base.node.preproc.append.row.AppendedRowsNodeFactory"/>
+<entry key="node-name" type="xstring" value="Concatenate"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
 <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base"/>
 <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
@@ -60,7 +25,7 @@
 <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
 <entry key="node-feature-version" type="xstring" value="3.5.3.v201804041546"/>
 <config key="factory_settings"/>
-<entry key="name" type="xstring" value="Domain Calculator"/>
+<entry key="name" type="xstring" value="Concatenate"/>
 <entry key="hasContent" type="xboolean" value="true"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
@@ -68,12 +33,12 @@
 <entry key="index" type="xint" value="1"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 38549, Cols: 16"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 76101, Cols: 17"/>
 <entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="6e266870-587f-4cde-a83b-db22fa85778a"/>
+<entry key="file_store_id" type="xstring" value="dfcbc4e4-dbdb-4fdb-994f-ab1c7fd15bd6"/>
 </config>
 </config>
