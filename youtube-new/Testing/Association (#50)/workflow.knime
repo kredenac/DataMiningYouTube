@@ -13,8 +13,8 @@
 <config key="nodeAnnotation">
 <entry key="text" type="xstring" value="Video names and tags"/>
 <entry key="bgcolor" type="xint" value="16777215"/>
-<entry key="x-coordinate" type="xint" value="338"/>
-<entry key="y-coordinate" type="xint" value="386"/>
+<entry key="x-coordinate" type="xint" value="478"/>
+<entry key="y-coordinate" type="xint" value="146"/>
 <entry key="width" type="xint" value="124"/>
 <entry key="height" type="xint" value="15"/>
 <entry key="alignment" type="xstring" value="CENTER"/>
