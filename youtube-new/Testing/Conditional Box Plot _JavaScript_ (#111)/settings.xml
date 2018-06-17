@@ -160,7 +160,11 @@
 <entry key="generateImage" type="xboolean" value="true"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
+<config key="nodecontainer_message">
+<entry key="type" type="xstring" value="WARNING"/>
+<entry key="message" type="xstring" value="Status: DataLoadError: Conditional Box Plot (JavaScript) 0:111%%00010  Status: DataLoadError: Unable to load port content for node &quot;Conditional Box Plot (JavaScript)&quot;: Can't read spec file C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Conditional Box Plot _JavaScript_ (#111)\port_1\spec\spec.zip%%00010  Status: DataLoadError: Loading model internals failed: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Conditional Box Plot _JavaScript_ (#111)\internal\representation.xml (The system cannot find the path specified)%%00010  Status: DataLoadError: State has changed from EXECUTED to CONFIGURED"/>
+</config>
 <entry key="factory" type="xstring" value="org.knime.dynamic.js.v30.DynamicJSNodeFactory"/>
 <entry key="node-name" type="xstring" value="Conditional Box Plot (JavaScript)"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Dynamically Created JavaScript Nodes"/>
@@ -175,21 +179,16 @@
 <entry key="nodeDir" type="xstring" value="org.knime.dynamic.js.base:nodes/:cond_boxplot_v2"/>
 </config>
 <entry key="name" type="xstring" value="Conditional Box Plot (JavaScript)"/>
-<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_spec_class" type="xstring" value="org.knime.core.node.port.image.ImagePortObjectSpec"/>
-<entry key="port_object_class" type="xstring" value="org.knime.core.node.port.image.ImagePortObject"/>
-<entry key="port_object_summary" type="xstring" value="SVG 800 x 600"/>
-<entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
-<entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
-<entry key="port_dir_location" type="xstring" value="port_1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="16d9796e-7b77-401f-a1f1-863a3fc10609"/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>

@@ -6,11 +6,6 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<config key="failMissing_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="failMissing" type="xboolean" value="false"/>
 <config key="dimension_selection_Internals">
 <entry key="SettingsModelID" type="xstring" value="SettingsModelChoiceIntDouble.modelTypeID"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -37,6 +32,11 @@
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="removeColumns" type="xboolean" value="true"/>
+<config key="failMissing_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="failMissing" type="xboolean" value="false"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="EXECUTED"/>
@@ -65,6 +65,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="7d7832ff-e100-4478-a16f-de0df26152d3"/>
+<entry key="file_store_id" type="xstring" value="28ebe837-bf10-4895-9eb3-f498581b766a"/>
 </config>
 </config>

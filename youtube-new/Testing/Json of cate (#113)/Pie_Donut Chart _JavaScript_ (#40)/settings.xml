@@ -6,91 +6,71 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<config key="generateImagemodel_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="generateImagemodel" type="xboolean" value="true"/>
-<config key="cat_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="cat" type="xstring" value="category"/>
-<config key="aggr_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="aggr" type="xstring" value="Sum"/>
-<config key="reportOnMissingValues_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="reportOnMissingValues" type="xboolean" value="true"/>
-<config key="includeMissValCat_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="includeMissValCat" type="xboolean" value="true"/>
-<config key="freq_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="freq" type="xstring" value="Mean(views)"/>
-<config key="title_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="title" type="xstring" value="Pie Chart"/>
-<config key="subtitle_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="subtitle" type="xstring" value=""/>
-<config key="togglePie_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="togglePie" type="xboolean" value="false"/>
-<config key="holeSize_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_double"/>
-<entry key="EnabledStatus" type="xboolean" value="false"/>
-</config>
-<entry key="holeSize" type="xdouble" value="0.35"/>
-<config key="insideTitle_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="false"/>
-</config>
-<entry key="insideTitle" type="xstring" value=""/>
-<config key="customColors_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="customColors" type="xboolean" value="false"/>
-<config key="legend_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="legend" type="xboolean" value="true"/>
-<config key="showLabels_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="showLabels" type="xboolean" value="true"/>
-<config key="labelType_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="labelType" type="xstring" value="Value"/>
-<config key="labelThreshold_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_double"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="labelThreshold" type="xdouble" value="0.05"/>
 <config key="displayFullscreenButton_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="displayFullscreenButton" type="xboolean" value="true"/>
+<config key="enableHoleEdit_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="enableHoleEdit" type="xboolean" value="true"/>
+<config key="legend_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="legend" type="xboolean" value="true"/>
+<config key="customColors_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="customColors" type="xboolean" value="false"/>
+<config key="freq_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="freq" type="xstring" value="Mean(views)"/>
+<config key="labelType_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="labelType" type="xstring" value="Value"/>
+<config key="title_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="title" type="xstring" value="Pie Chart"/>
+<config key="enableSwitchMissValCat_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="enableSwitchMissValCat" type="xboolean" value="true"/>
+<config key="includeMissValCat_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="includeMissValCat" type="xboolean" value="true"/>
+<config key="labelThreshold_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_double"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="labelThreshold" type="xdouble" value="0.05"/>
+<config key="cat_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="cat" type="xstring" value="category"/>
+<config key="showWarnings_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="showWarnings" type="xboolean" value="true"/>
+<config key="enableSubtitleEdit_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="enableSubtitleEdit" type="xboolean" value="true"/>
 <config key="svg_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_svg"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -101,56 +81,71 @@
 <entry key="fullscreen" type="xboolean" value="true"/>
 <entry key="showFullscreen" type="xboolean" value="true"/>
 </config>
-<config key="showWarnings_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="showWarnings" type="xboolean" value="true"/>
-<config key="enableViewControls_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="enableViewControls" type="xboolean" value="true"/>
-<config key="enableTitleEdit_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="enableTitleEdit" type="xboolean" value="true"/>
-<config key="enableSubtitleEdit_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="enableSubtitleEdit" type="xboolean" value="true"/>
-<config key="enableDonutToggle_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="enableDonutToggle" type="xboolean" value="true"/>
-<config key="enableHoleEdit_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="enableHoleEdit" type="xboolean" value="true"/>
 <config key="enableInsideTitleEdit_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="enableInsideTitleEdit" type="xboolean" value="true"/>
-<config key="enableColumnChooser_Internals">
+<config key="enableTitleEdit_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="enableColumnChooser" type="xboolean" value="true"/>
+<entry key="enableTitleEdit" type="xboolean" value="true"/>
+<config key="enableDonutToggle_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="enableDonutToggle" type="xboolean" value="true"/>
+<config key="holeSize_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_double"/>
+<entry key="EnabledStatus" type="xboolean" value="false"/>
+</config>
+<entry key="holeSize" type="xdouble" value="0.35"/>
 <config key="enableLabelEdit_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="enableLabelEdit" type="xboolean" value="true"/>
-<config key="enableSwitchMissValCat_Internals">
+<config key="togglePie_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="enableSwitchMissValCat" type="xboolean" value="true"/>
+<entry key="togglePie" type="xboolean" value="false"/>
+<config key="insideTitle_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="false"/>
+</config>
+<entry key="insideTitle" type="xstring" value=""/>
+<config key="reportOnMissingValues_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="reportOnMissingValues" type="xboolean" value="true"/>
+<config key="showLabels_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="showLabels" type="xboolean" value="true"/>
+<config key="subtitle_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="subtitle" type="xstring" value=""/>
+<config key="enableViewControls_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="enableViewControls" type="xboolean" value="true"/>
+<config key="enableColumnChooser_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="enableColumnChooser" type="xboolean" value="true"/>
+<config key="aggr_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="aggr" type="xstring" value="Sum"/>
 <entry key="hideInWizard" type="xboolean" value="false"/>
 <entry key="maxRows" type="xint" value="2500"/>
 <entry key="generateImage" type="xboolean" value="true"/>
@@ -170,7 +165,11 @@
 <config key="styles"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
+<config key="nodecontainer_message">
+<entry key="type" type="xstring" value="WARNING"/>
+<entry key="message" type="xstring" value="Status: DataLoadError: Pie/Donut Chart (JavaScript) 0:113:40%%00010  Status: DataLoadError: Unable to load port content for node &quot;Pie/Donut Chart (JavaScript)&quot;: Can't read spec file C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Json of cate (#113)\Pie_Donut Chart _JavaScript_ (#40)\port_1\spec\spec.zip%%00010  Status: DataLoadError: Loading model internals failed: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Json of cate (#113)\Pie_Donut Chart _JavaScript_ (#40)\internal\representation.xml (The system cannot find the path specified)%%00010  Status: DataLoadError: State has changed from EXECUTED to CONFIGURED"/>
+</config>
 <entry key="factory" type="xstring" value="org.knime.dynamic.js.v30.DynamicJSNodeFactory"/>
 <entry key="node-name" type="xstring" value="Pie/Donut Chart (JavaScript)"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Dynamically Created JavaScript Nodes"/>
@@ -185,21 +184,16 @@
 <entry key="nodeDir" type="xstring" value="org.knime.dynamic.js.base:nodes/:donutChart"/>
 </config>
 <entry key="name" type="xstring" value="Pie/Donut Chart (JavaScript)"/>
-<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_spec_class" type="xstring" value="org.knime.core.node.port.image.ImagePortObjectSpec"/>
-<entry key="port_object_class" type="xstring" value="org.knime.core.node.port.image.ImagePortObject"/>
-<entry key="port_object_summary" type="xstring" value="SVG 553 x 349"/>
-<entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
-<entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
-<entry key="port_dir_location" type="xstring" value="port_1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="e1224920-5442-4daf-ba9e-53f657511ef5"/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>
