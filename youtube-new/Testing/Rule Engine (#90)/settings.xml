@@ -15,7 +15,7 @@
 <entry key="4" type="xstring" value="TRUE =&gt; &quot;United Kingdom&quot;"/>
 </config>
 <entry key="new-column-name" type="xstring" value="Country"/>
-<entry key="replace-column-name" type="xstring" isnull="true" value=""/>
+<entry key="replace-column-name" type="xstring" value="description_upper_case_percentage"/>
 <entry key="append-column" type="xboolean" value="true"/>
 <entry key="disallowLongOutputForCompatibility" type="xboolean" value="false"/>
 </config>
@@ -46,6 +46,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="14984062-a8f0-4bc1-8b4a-4620ebb06d13"/>
+<entry key="file_store_id" type="xstring" value="c867f90c-f8e1-4347-ac71-257dade8aecd"/>
 </config>
 </config>

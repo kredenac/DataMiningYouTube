@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+<entry key="node_file" type="xstring" value="settings.xml"/>
+<config key="flow_stack"/>
+<config key="internal_node_subsettings">
+<entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+</config>
+<config key="model">
+<config key="failMissing_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="failMissing" type="xboolean" value="false"/>
+<config key="dimension_selection_Internals">
+<entry key="SettingsModelID" type="xstring" value="SettingsModelChoiceIntDouble.modelTypeID"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<config key="dimension_selection">
+<entry key="choice" type="xboolean" value="false"/>
+<entry key="doubleVal" type="xdouble" value="95.0"/>
+<entry key="intVal" type="xint" value="2"/>
+<config key="eigenvalues">
+<entry key="array-size" type="xint" value="9"/>
+<entry key="0" type="xdouble" value="5.156143275669248E-5"/>
+<entry key="1" type="xdouble" value="1.953745349702665E-4"/>
+<entry key="2" type="xdouble" value="3.2824439644460885E-4"/>
+<entry key="3" type="xdouble" value="0.001288035429267788"/>
+<entry key="4" type="xdouble" value="0.002782081524199414"/>
+<entry key="5" type="xdouble" value="0.015224343209919418"/>
+<entry key="6" type="xdouble" value="0.02354968228083437"/>
+<entry key="7" type="xdouble" value="0.0271154130914088"/>
+<entry key="8" type="xdouble" value="0.038277812295529"/>
+</config>
+</config>
+<config key="removeColumns_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="removeColumns" type="xboolean" value="true"/>
+</config>
+<entry key="customDescription" type="xstring" isnull="true" value=""/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
+<entry key="factory" type="xstring" value="org.knime.base.node.mine.pca.PCAApplyNodeFactory"/>
+<entry key="node-name" type="xstring" value="PCA Apply"/>
+<entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
+<entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base"/>
+<entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+<entry key="node-bundle-version" type="xstring" value="3.5.3.v201804041546"/>
+<entry key="node-feature-name" type="xstring" value="KNIME Core"/>
+<entry key="node-feature-symbolic-name" type="xstring" value="org.knime.features.base.feature.group"/>
+<entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+<entry key="node-feature-version" type="xstring" value="3.5.3.v201804041546"/>
+<config key="factory_settings"/>
+<entry key="name" type="xstring" value="PCA Apply"/>
+<entry key="hasContent" type="xboolean" value="false"/>
+<entry key="isInactive" type="xboolean" value="false"/>
+<config key="ports">
+<config key="port_1">
+<entry key="index" type="xint" value="1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+</config>
+</config>
+<config key="filestores">
+<entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+</config>
+</config>
