@@ -82,6 +82,8 @@ Klipovi koji se nalaze na Trendingu su u tom trenutku aktuelni, popularni ili re
 Skup podataka se može naći na adresi \url{https://www.kaggle.com/datasnaek/youtube-new}.
 Za obradu tokom ovog projekta su korišćeni KNIME platforma i Java programski jezik.
 
+Prvo će biti dat opis podataka, potom pregled KNIME projekta i kako je rađeno pretprocesiranje. Nakon toga će biti prikazano korišćenje algoritama i njihovi rezultati, a na kraju
+vizuelizacije podataka.
 % ==============================================================================
 \section{Analiza i pretprocesiranje podataka}
 
@@ -357,7 +359,19 @@ Nakon pretprocesiranja i čišćenja svih csv datoteka potrebno ih je spojiti u 
 
 Na kraju su video klipovi grupisani tako da se jedan video\_id nalazi samo u jednom redu, detalji grupisanja su prikazani na slici \ref{fig:concat}.
 
-
+Da bi se dobili odgovarajuci nazivi tematskih kategorija video klipova potrebno je spojiti csv redove sa redovima iz JSON datoteka.
+Nakon ucitavanja JSON datoteke, potrebno je idvojiti sve elemente niza korišćenjem JSON Path selektora. 
+Tada je na raspolaganju samo jedan red koji sadrži sve JSON objekte koji čine pomenuti niz. 
+Pomoću ungroup čvora dobija se više redova gde svaki predstavlja jedan element početnog niza.
+Ponovnim korišćenjem JSON path selektora dobija se tabela koja u svakom redu umesto jednog JSON objekta
+sada ima dva atributa. Jedan je identifikator kategorije, a drugi je njen naziv na engleskom.
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{json_of_categories.png}
+    \caption{Pretprocesiranje JSON datoteka}
+    \label{fig:json}
+\end{center}
+\end{figure}
 % ==============================================================================
 \section{Klasifikacija}
 \label{sec:klasifikacija}
