@@ -17,6 +17,35 @@
 \usepackage[english,serbian]{babel}
 
 \usepackage[unicode]{hyperref}
+
+
+%================= start config for code printing
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+
+%============ end code
+
 \hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
 
 \newtheorem*{tvrdjenje}{Tvrđenje}
@@ -47,7 +76,6 @@
 \section{Uvod}
 \label{sec:uvod}
 % ==============================================================================
-
 Skup podataka ``Trending YouTube Video Statistics'' sadrži informacije o YouTube video klipovima koji su se pojavili na Trending listi.
 Klipovi koji se nalaze na Trendingu su u tom trenutku aktuelni, popularni ili relevantni. Neće svaki klip sa mnogo pregleda biti na trendingu,
  pritom se trending liste razlikuju za svaku državu. Podaci su nastali višemesečnim prikupljanjem klipova sa trending liste korišćenjem YouTube API.
@@ -128,10 +156,39 @@ Preprocessing meta-čvor sadrži obrade koje su potrebne za sav dalji tok analiz
 
 \begin{figure}[h!]
 \begin{center}
-    \includegraphics[width=1\textwidth]{Global.png}
+    \includegraphics[width=1\textwidth]{preprocessing.png}
     \caption{Pretprocesiranje}
 \end{center}
 \end{figure}
+Prvo se uklanja kolona sa linkom na sliku pošto se to neće koristiti. Potom se konvertuju stringovski zapisi datuma u datumske tipove. 
+Za svaki video\_id se broji koliko puta se pojavljuje u toj tabeli, pa se potom spajaju kako bi se na sve redove nadovezao taj atribut.
+Takođe se izdvaja i lista svih datuma kad je taj klip bio na trendingu.
+Za neke operacije nije bilo dovoljno koristiti ugrađene operacije preko običnih KNIME  čvorova, pa se tada koristi ``Java snippet''.
+
+\begin{lstlisting}
+// racunanje broja dana koliko je ova instanca bila na trendingu, i da li ce biti jos barem jednom
+public void snippet() throws TypeException, ColumnException, Abort {
+
+	// datum trendinga ove instance
+	LocalDate l = c_trending_date;
+	// lista svih datuma kada je ovaj video_id bio na trendingu
+	LocalDate list[] = c_Sortedlisttrending_date;
+
+	int c = 0;
+	// brojanje koliko instanci je bilo na trendingu pre ove instance
+	for (LocalDate e : c_Sortedlisttrending_date){	
+		if (l.compareTo(e) >= 0 ){
+			c++;
+		}
+	}
+	out_days_trending = c;
+	// ako je ova instanca ima najnoviji datum medju svim u listi
+	// onda nece biti na trendingu jos jednom
+	out_WillTrendAgain = c < list.length ? "true" : "false";
+
+}
+
+\end{lstlisting}
 % ==============================================================================
 \section{Klasifikacija}
 \label{sec:klasifikacija}
@@ -149,4 +206,5 @@ x <= {y, z}
 \label{sec:dod}
 % ==============================================================================
 
+\end{document}
 
