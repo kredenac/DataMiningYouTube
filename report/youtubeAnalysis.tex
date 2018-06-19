@@ -80,6 +80,7 @@ Skup podataka ``Trending YouTube Video Statistics'' sadrži informacije o YouTub
 Klipovi koji se nalaze na Trendingu su u tom trenutku aktuelni, popularni ili relevantni. Neće svaki klip sa mnogo pregleda biti na trendingu,
  pritom se trending liste razlikuju za svaku državu. Podaci su nastali višemesečnim prikupljanjem klipova sa trending liste korišćenjem YouTube API.
 Skup podataka se može naći na adresi \url{https://www.kaggle.com/datasnaek/youtube-new}.
+Za obradu tokom ovog projekta su korišćeni KNIME platforma i Java programski jezik.
 
 % ==============================================================================
 \section{Analiza i pretprocesiranje podataka}
@@ -189,6 +190,174 @@ public void snippet() throws TypeException, ColumnException, Abort {
 }
 
 \end{lstlisting}
+
+
+Takođe je pravljen novi atribut koji govori o broju dana između postavljanja klipa na YouTube i dana kada je na trendingu.
+Sledeći Java snippet to obrađuje.
+
+\begin{lstlisting}
+import java.time.temporal.*;
+// system variables
+public class JSnippet extends AbstractJSnippet {
+// Fields for input columns
+/** Input column: "trending_date" */
+public LocalDate c_trending_date;
+/** Input column: "publish_time" */
+public ZonedDateTime c_publish_time;
+
+// Fields for output columns
+/** Output column: "days_after_publish" */
+public Integer out_days_after_publish;
+
+public void snippet() throws TypeException, ColumnException, Abort {
+
+	long daysBetween = ChronoUnit.DAYS.
+		between(c_publish_time.toLocalDate(), c_trending_date);
+
+	out_days_after_publish = (int)daysBetween;	
+}
+\end{lstlisting}
+
+Potom se računa broj tagova, korišćenjem kratkog izraza unutar String Manipulation čvora.
+
+\begin{verbatim}
+count($tags$, "|") + compare($tags$, "")
+\end{verbatim}
+
+I na kraju se računa više novih atributa korišćenjem sledećeg Java koda.
+
+Cilj je izračunati neke interesantne atribute analizom teksta naziva klipa kao i njegovog opisa.
+
+
+\begin{lstlisting}
+// broj reci u naslovu
+out_title_word_count = 0;
+
+// broj reci u naslovu koje pocinju velikim slovom
+out_title_capital_percentage = 0.;
+
+// broj reci koje su u potpunosti napisane velikim slovima
+out_title_upper_case_percentage = 0.;
+
+// broj reci u opisu klipa
+out_description_word_count = 0;
+
+// broj reci u opisu koje pocinju velikim slovom
+out_description_capital_percentage = 0.;
+
+// broj reci u opisu koje su u potpunosti napisane velikim slovima
+out_description_upper_case_percentage = 0.;
+
+int title_capital_count = 0;
+int title_upper_count = 0;
+int description_capital_count = 0;
+int description_upper_count = 0;
+
+// izdvajaju se grupe karaktera koje su sacinjene 1+ slova
+String[] title_words = c_title.split("\\W+");
+for (int i=0; i<title_words.length; i++) {
+	out_title_word_count++;
+	String word = title_words[i];
+	int n = word.length();
+	boolean isUpper = true;
+	boolean isCapital = true;
+	for (int j=0; j<n; j++) {
+		if (j==0 && word.charAt(j)!=Character.toUpperCase(word.charAt(j))) {
+			isUpper = false;
+			isCapital = false;
+			break;
+		} else if (j!=0) {
+			if (word.charAt(j)==Character.toUpperCase(word.charAt(j))) {
+				isCapital = false;
+			}
+			else {
+				isUpper = false;
+			}
+		}
+	}
+	if (isUpper)
+		title_upper_count++;
+	if (isCapital)
+		title_capital_count++;
+}
+
+// izdvajaju se grupe karaktera koje su sacinjene 1+ slova
+String[] desc_words = c_description.split("\\W+");
+for (int i=0; i<desc_words.length; i++) {
+	out_description_word_count++;
+	String word = desc_words[i];
+	int n = word.length();
+	boolean isUpper = true;
+	boolean isCapital = true;
+	for (int j=0; j<n; j++) {
+		if (j==0 && word.charAt(j)!=Character.toUpperCase(word.charAt(j))) {
+			isUpper = false;
+			isCapital = false;
+			break;
+		} else if (j!=0) {
+			if (word.charAt(j)==Character.toUpperCase(word.charAt(j))) {
+				isCapital = false;
+			}
+			else {
+				isUpper = false;
+			}
+		}
+	}
+	if (isUpper)
+		description_upper_count++;
+	if (isCapital)
+		description_capital_count++;
+}
+
+// ako nije bilo nijedne utf-8 reci u naslovu
+if (out_title_word_count == 0){
+	out_title_capital_percentage = 0.0;
+	out_title_upper_case_percentage = 0.0;
+} else {
+	out_title_capital_percentage = title_capital_count*1.0/out_title_word_count;
+	out_title_upper_case_percentage = title_upper_count*1.0/out_title_word_count;
+	
+}
+
+// ako nije bilo nijedne utf-8 reci u opisu
+if (out_description_word_count == 0){
+	out_description_capital_percentage = 0.0;
+	out_description_upper_case_percentage = 0.0;
+} else {
+	out_description_capital_percentage = description_capital_count*1.0/out_description_word_count;
+	out_description_upper_case_percentage = description_upper_count*1.0/out_description_word_count;
+}
+
+
+\end{lstlisting}
+
+
+Meta-čvor za čiščenje sadrži sledeće.
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{cleaning.png}
+    \caption{Filtriranje sada nepotrebnih kolona}
+
+\end{center}
+\end{figure}
+
+Row filter otklanja 7 neodgovarajućih redova, dok poslednji čvor konvertuje celobrojni zapis identifikatora kategorije u
+stringovski, kako bi se posmatrao kao kategorički atribut.
+
+Nakon pretprocesiranja i čišćenja svih csv datoteka potrebno ih je spojiti u jednu veliku tabelu. To se dešava unutar concatenate meta-čvora.
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{concatenation.png}
+    \caption{Sadržaj concatenate meta-čvora i detalji grupisanja}
+    \label{fig:concat}
+\end{center}
+\end{figure}
+
+Na kraju su video klipovi grupisani tako da se jedan video\_id nalazi samo u jednom redu, detalji grupisanja su prikazani na slici \ref{fig:concat}.
+
+
 % ==============================================================================
 \section{Klasifikacija}
 \label{sec:klasifikacija}
