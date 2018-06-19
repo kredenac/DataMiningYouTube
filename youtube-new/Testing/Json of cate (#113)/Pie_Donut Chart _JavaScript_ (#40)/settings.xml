@@ -166,10 +166,6 @@
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="CONFIGURED"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="Status: DataLoadError: Pie/Donut Chart (JavaScript) 0:113:40%%00010  Status: DataLoadError: Unable to load port content for node &quot;Pie/Donut Chart (JavaScript)&quot;: Can't read spec file C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Json of cate (#113)\Pie_Donut Chart _JavaScript_ (#40)\port_1\spec\spec.zip%%00010  Status: DataLoadError: Loading model internals failed: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Json of cate (#113)\Pie_Donut Chart _JavaScript_ (#40)\internal\representation.xml (The system cannot find the path specified)%%00010  Status: DataLoadError: State has changed from EXECUTED to CONFIGURED"/>
-</config>
 <entry key="factory" type="xstring" value="org.knime.dynamic.js.v30.DynamicJSNodeFactory"/>
 <entry key="node-name" type="xstring" value="Pie/Donut Chart (JavaScript)"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Dynamically Created JavaScript Nodes"/>

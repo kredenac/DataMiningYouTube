@@ -8,10 +8,6 @@
 <config key="model"/>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="CONFIGURED"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="Status: DataLoadError: Box Plot 0:107%%00010  Status: DataLoadError: Unable to load port content for node &quot;Box Plot&quot;: No such data file: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Box Plot (#107)\port_1\data.xml%%00010  Status: DataLoadError: Loading model internals failed: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Box Plot (#107)\internal\boxPlotInternals (The system cannot find the path specified)%%00010  Status: DataLoadError: State has changed from EXECUTED to CONFIGURED"/>
-</config>
 <entry key="factory" type="xstring" value="org.knime.base.node.viz.plotter.box.BoxPlotNodeFactory"/>
 <entry key="node-name" type="xstring" value="Box Plot"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>

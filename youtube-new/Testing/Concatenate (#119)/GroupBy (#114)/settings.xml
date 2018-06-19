@@ -46,11 +46,21 @@
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="enableHilite" type="xboolean" value="false"/>
+<config key="valueDelimiter_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="valueDelimiter" type="xstring" value=", "/>
 <config key="sortInMemory_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="sortInMemory" type="xboolean" value="false"/>
+<config key="columnNamePolicy_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="columnNamePolicy" type="xstring" value="Keep original name(s)"/>
 <config key="aggregationColumn">
 <config key="columnNames">
 <entry key="array-size" type="xint" value="15"/>
@@ -67,8 +77,8 @@
 <entry key="10" type="xstring" value="description_word_count"/>
 <entry key="11" type="xstring" value="description_capital_percentage"/>
 <entry key="12" type="xstring" value="description_upper_case_percentage"/>
-<entry key="13" type="xstring" value="Country"/>
-<entry key="14" type="xstring" value="category_id"/>
+<entry key="13" type="xstring" value="category_id"/>
+<entry key="14" type="xstring" value="Country"/>
 </config>
 <config key="columnTypes">
 <entry key="array-size" type="xint" value="15"/>
@@ -149,7 +159,7 @@
 <entry key="11" type="xstring" value="First"/>
 <entry key="12" type="xstring" value="First"/>
 <entry key="13" type="xstring" value="First"/>
-<entry key="14" type="xstring" value="First"/>
+<entry key="14" type="xstring" value="Mode"/>
 </config>
 <config key="inclMissingVals">
 <entry key="array-size" type="xint" value="15"/>
@@ -173,11 +183,6 @@
 <config key="aggregationOperatorSettings"/>
 <config key="patternAggregators"/>
 <config key="dataTypeAggregators"/>
-<config key="columnNamePolicy_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="columnNamePolicy" type="xstring" value="Keep original name(s)"/>
 <config key="retainOrder_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -188,11 +193,6 @@
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="inMemory" type="xboolean" value="false"/>
-<config key="valueDelimiter_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="valueDelimiter" type="xstring" value=", "/>
 <config key="nodeVersion_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -226,6 +226,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="3ab4a932-586d-46be-b2aa-1ce369e1806b"/>
+<entry key="file_store_id" type="xstring" value="47a8a1b3-80d3-4588-8208-f8cfcb938404"/>
 </config>
 </config>

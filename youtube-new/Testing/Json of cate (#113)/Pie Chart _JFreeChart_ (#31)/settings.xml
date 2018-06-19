@@ -94,10 +94,6 @@
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="CONFIGURED"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="Status: DataLoadError: Pie Chart (JFreeChart) 0:113:31%%00010  Status: DataLoadError: Unable to load port content for node &quot;Pie Chart (JFreeChart)&quot;: Can't read spec file C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Json of cate (#113)\Pie Chart _JFreeChart_ (#31)\port_1\spec\spec.zip%%00010  Status: DataLoadError: Loading model internals failed: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Json of cate (#113)\Pie Chart _JFreeChart_ (#31)\internal\ChartData (The system cannot find the path specified)%%00010  Status: DataLoadError: State has changed from EXECUTED to CONFIGURED"/>
-</config>
 <entry key="factory" type="xstring" value="org.knime.ext.jfc.node.piechart.JfcPieChartNodeFactory"/>
 <entry key="node-name" type="xstring" value="Pie Chart (JFreeChart)"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME JFreeChart nodes"/>

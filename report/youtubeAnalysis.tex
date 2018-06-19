@@ -12,10 +12,9 @@
 \usepackage{subcaption}
 \usepackage{amsmath}
 \usepackage{verbatim}
-% \graphicspath{ {.} }
+\graphicspath{ {./images/} }
 
 \usepackage[english,serbian]{babel}
-%\usepackage[english,serbianc]{babel} %ukljuciti babel sa ovim opcijama, umesto gornjim, ukoliko se koristi cirilica
 
 \usepackage[unicode]{hyperref}
 \hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
@@ -23,26 +22,20 @@
 \newtheorem*{tvrdjenje}{Tvrđenje}
 \newtheorem*{hipoteza}{Hipoteza}
 \theoremstyle{definition}
-%\newtheorem{primer}{Пример}[section] %ćirilični primer
 \newtheorem{primer}{Primer}[section]
 
 
 
 \begin{document}
 
-%\renewcommand{\abstractname}{Apstrakt} %pisace Sazetak ako se ne ukljuci ova naredba
+\title{YouTube Trending\\ \small{Seminarski rad u okviru kursa\\Istraživanje podataka\\ Matematički fakultet}}
 
-\title{YouTube trending\\ \small{Seminarski rad u okviru kursa\\Istraživanje podataka\\ Matematički fakultet}}
-
-\author{Nikola Dimitrijević \footnote{nikoladim95@gmail.com}\\
+\author{Nikola Dimitrijević \footnote{mi14079@alas.matf.bg.ac.rs}\\
         Luka Živanović \footnote{mi14164@alas.matf.bg.ac.rs}\\
  }
 %\date{9.~april 2015.}
 \vspace*{-3cm}
     {\let\newpage\relax\maketitle}
-
-
-%Molim Vas da kada budete predavali seminarski rad, imenujete datoteke tako da sadrže temu seminarskog rada, kao i imena i prezimena članova grupe (ili samo temu i prezimena, ukoliko je sa imenima predugačko). Predaja seminarskih radova biće isključivo preko web forme, a NE slanjem mejla.}
 
 \tableofcontents
 
@@ -55,14 +48,90 @@
 \label{sec:uvod}
 % ==============================================================================
 
-Ukratko sta radimo.
+Skup podataka ``Trending YouTube Video Statistics'' sadrži informacije o YouTube video klipovima koji su se pojavili na Trending listi.
+Klipovi koji se nalaze na Trendingu su u tom trenutku aktuelni, popularni ili relevantni. Neće svaki klip sa mnogo pregleda biti na trendingu,
+ pritom se trending liste razlikuju za svaku državu. Podaci su nastali višemesečnim prikupljanjem klipova sa trending liste korišćenjem YouTube API.
+Skup podataka se može naći na adresi \url{https://www.kaggle.com/datasnaek/youtube-new}.
 
 % ==============================================================================
 \section{Analiza i pretprocesiranje podataka}
+
+
 \label{sec:analiza}
 % ==============================================================================
 
+\subsection{Opis skupa podataka}
+Podaci se nalaze u više tabela: US, GB, DE,
+CA i FR (SAD, Velika Britanija, Nemačka, Kanada i Francuska redom). 
+Svaki klip se može naći više puta na trendingu.
+Primera radi, US tabela sadrži 38549 redova, među kojima je zapravo  6201 različitih klipova.
 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c| } 
+ \hline
+ video\_id & jedinstveni identifikator svakog video klipa  \\ 
+\hline
+ trending\_date & datum kad je klip bio na trendingu (yy.dd.mm)  \\ 
+\hline
+ title & naziv klipa  \\ 
+\hline
+ channel\_title & naziv kanala koji je postavio klip  \\ 
+\hline
+ category\_id & jedinstveni identifikator tematske kategorije klipa  \\ 
+\hline
+publish\_time & vreme postavljanja klipa (yyyy-mm-ddThh:mm:ss.000Z)\\ 
+\hline
+tags & ključne reči, u formatu tag1|tag2|... |tagn  \\ 
+\hline
+views & broj pregleda  \\ 
+\hline
+likes & broj ljudi koji su izabrali da im se sviđa klip\\ 
+\hline
+dislikes & broj ljudi koji su izabrali da im se ne sviđa klip   \\ 
+\hline
+comment\_count & broj komentara \\ 
+\hline
+thumbnail\_link & link ka sličici koja predstavlja video klip  \\ 
+\hline
+comments\_disabled & da li su komentari isključeni  \\ 
+\hline
+ratings\_disabled & da li je ocenjivanje isključeno \\ 
+\hline
+video\_error\_or\_removed & da li video ima grešku ili je uklonjen  \\ 
+\hline
+description & opis video klipa  \\ 
+ \hline
+\end{tabular}
+\caption{Opis datoteke USvideos.csv. Nazivi kolona su dati levo, a njihovi opisi desno.}
+\label{table:1}
+\end{table}
+
+Ovaj skup podataka takođe sadrži i JSON datoteke za svaku od navedenih država.
+Razlog za to je što se skup tematskih kategorija klipova razlikovao među državama, pa se u JSON datotekama nalaze imena koja odgovaraju određenim identifikatorima kategorija.
+
+\subsection{Pretprocesiranje}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{Global.png}
+    \caption{Globalni pogled na KNIME projekat}
+\end{center}
+\end{figure}
+
+U donjem levom delu se učitavaju podaci iz .csv datoteka, pretprocesiraju, prečišćavaju, dodaje se redovima oznaka na koju državu se odnose.
+Nakon toga se svi spajaju u jednu ogrmonu tabelu.
+
+Preprocessing meta-čvor sadrži obrade koje su potrebne za sav dalji tok analize.
+
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{Global.png}
+    \caption{Pretprocesiranje}
+\end{center}
+\end{figure}
 % ==============================================================================
 \section{Klasifikacija}
 \label{sec:klasifikacija}
@@ -76,75 +145,8 @@ Ukratko sta radimo.
 x <= {y, z}
 
 % ==============================================================================
-\section{One vizualizacija mozda ovde?}
+\section{One vizualizacije mozda ovde?}
 \label{sec:dod}
 % ==============================================================================
 
-picz
-\begin{comment}
 
-\newlength{\figWidth}
-\setlength{\figWidth}{0.45\textwidth}
-%accuracy
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[t]{\figWidth}
-    \includegraphics[width=1\textwidth]{accuracy_a.png}
-    \caption{Sa svim atributima}
-
-\end{subfigure}
-~
-\begin{subfigure}[t]{\figWidth}
-    \includegraphics[width=1\textwidth]{accuracy_b.png}
-    \caption{Sa redukovanim skupom atributa}
-
-\end{subfigure}
-
-\caption{Preciznost klasifikacije u zavisnosti od algoritma}
-
-\label{fig:acc}
-\end{figure}
-
-% false negative
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[t]{\figWidth}
-    \includegraphics[width=1\textwidth]{false_pos_a.png}
-    \caption{Sa svim atributima}
-
-\end{subfigure}
-~
-\begin{subfigure}[t]{\figWidth}
-    \includegraphics[width=1\textwidth]{false_pos_b.png}
-    \caption{Sa redukovanim skupom atributa}
-
-\end{subfigure}
-
-\caption{Udeo lažno pozitivnih instanci u zavisnosti od algoritma}
-
-\label{fig:falsePos}
-\end{figure}
-
-% false positive
-\begin{figure}[h!]
-\centering
-\begin{subfigure}[t]{\figWidth}
-    \includegraphics[width=1\textwidth]{false_neg_a.png}
-    \caption{Sa svim atributima}
-
-\end{subfigure}
-~
-\begin{subfigure}[t]{\figWidth}
-    \includegraphics[width=1\textwidth]{false_neg_b.png}
-    \caption{Sa redukovanim skupom atributa}
-
-\end{subfigure}
-
-\caption{Udeo lažno negativnih instanci u zavisnosti od algoritma}
-
-\label{fig:falseNeg}
-\end{figure}
-\end{comment}
-
-
-\end{document}
