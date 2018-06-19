@@ -44,10 +44,6 @@
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="CONFIGURED"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="Status: DataLoadError: Association Rule Learner 0:50:45%%00010  Status: DataLoadError: Unable to load port content for node &quot;Association Rule Learner&quot;: No such data file: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Association (#50)\Association Rule Learner (#45)\port_1\data.xml"/>
-</config>
 <entry key="factory" type="xstring" value="org.knime.base.node.mine.subgroupminer.SubgroupMinerFactory2"/>
 <entry key="node-name" type="xstring" value="Association Rule Learner"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>

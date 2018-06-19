@@ -16,10 +16,6 @@
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="CONFIGURED"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="Status: DataLoadError: Random Forest Predictor 0:77:68%%00010  Status: DataLoadError: Unable to load port content for node &quot;Random Forest Predictor&quot;: No such data file: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Random Fores (#77)\Random Forest Predictor (#68)\port_1\data.xml"/>
-</config>
 <entry key="factory" type="xstring" value="org.knime.base.node.mine.treeensemble2.node.randomforest.predictor.classification.RandomForestClassificationPredictorNodeFactory"/>
 <entry key="node-name" type="xstring" value="Random Forest Predictor"/>
 <entry key="node-bundle-name" type="xstring" value="Decisions Tree Ensembles for KNIME"/>

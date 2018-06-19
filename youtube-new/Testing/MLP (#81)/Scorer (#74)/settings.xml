@@ -46,10 +46,6 @@
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="CONFIGURED"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="Status: DataLoadError: Scorer 0:81:74%%00010  Status: DataLoadError: Unable to load port content for node &quot;Scorer&quot;: No such data file: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\MLP (#81)\Scorer (#74)\port_1\data.xml%%00010  Status: DataLoadError: Loading model internals failed: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\MLP (#81)\Scorer (#74)\internal\internals.xml.gz (The system cannot find the path specified)"/>
-</config>
 <entry key="factory" type="xstring" value="org.knime.base.node.mine.scorer.accuracy.AccuracyScorerNodeFactory"/>
 <entry key="node-name" type="xstring" value="Scorer"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>

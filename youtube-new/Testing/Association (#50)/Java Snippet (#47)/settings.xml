@@ -54,10 +54,6 @@
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="CONFIGURED"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="Status: DataLoadError: Java Snippet 0:50:47%%00010  Status: DataLoadError: Unable to load port content for node &quot;Java Snippet&quot;: No such data file: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\Association (#50)\Java Snippet (#47)\port_1\data.xml"/>
-</config>
 <entry key="factory" type="xstring" value="org.knime.base.node.jsnippet.JavaSnippetNodeFactory"/>
 <entry key="node-name" type="xstring" value="Java Snippet"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Java Snippet Nodes"/>

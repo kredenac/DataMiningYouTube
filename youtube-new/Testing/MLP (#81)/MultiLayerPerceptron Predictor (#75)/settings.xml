@@ -29,10 +29,6 @@
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="CONFIGURED"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="Status: DataLoadError: MultiLayerPerceptron Predictor 0:81:75%%00010  Status: DataLoadError: Unable to load port content for node &quot;MultiLayerPerceptron Predictor&quot;: No such data file: C:\Users\Dzoni\Documents\GitHub\DataMiningYouTube\youtube-new\Testing\MLP (#81)\MultiLayerPerceptron Predictor (#75)\port_1\data.xml"/>
-</config>
 <entry key="factory" type="xstring" value="org.knime.base.node.mine.neural.mlp2.MLPPredictorNodeFactory"/>
 <entry key="node-name" type="xstring" value="MultiLayerPerceptron Predictor"/>
 <entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
