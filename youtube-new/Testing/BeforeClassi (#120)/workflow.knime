@@ -11,7 +11,7 @@
 <entry key="lastEdited-when" type="xstring" isnull="true" value=""/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="CONFIGURED"/>
+<entry key="state" type="xstring" value="EXECUTED"/>
 <config key="workflow_credentials"/>
 <config key="nodes">
 <config key="node_55">
@@ -23,10 +23,10 @@
 <config key="ui_settings">
 <config key="extrainfo.node.bounds">
 <entry key="array-size" type="xint" value="4"/>
-<entry key="0" type="xint" value="229"/>
-<entry key="1" type="xint" value="220"/>
-<entry key="2" type="xint" value="71"/>
-<entry key="3" type="xint" value="78"/>
+<entry key="0" type="xint" value="444"/>
+<entry key="1" type="xint" value="217"/>
+<entry key="2" type="xint" value="68"/>
+<entry key="3" type="xint" value="76"/>
 </config>
 </config>
 </config>
@@ -39,10 +39,10 @@
 <config key="ui_settings">
 <config key="extrainfo.node.bounds">
 <entry key="array-size" type="xint" value="4"/>
-<entry key="0" type="xint" value="150"/>
-<entry key="1" type="xint" value="220"/>
-<entry key="2" type="xint" value="68"/>
-<entry key="3" type="xint" value="78"/>
+<entry key="0" type="xint" value="284"/>
+<entry key="1" type="xint" value="217"/>
+<entry key="2" type="xint" value="62"/>
+<entry key="3" type="xint" value="76"/>
 </config>
 </config>
 </config>
@@ -55,10 +55,10 @@
 <config key="ui_settings">
 <config key="extrainfo.node.bounds">
 <entry key="array-size" type="xint" value="4"/>
-<entry key="0" type="xint" value="150"/>
-<entry key="1" type="xint" value="120"/>
-<entry key="2" type="xint" value="81"/>
-<entry key="3" type="xint" value="78"/>
+<entry key="0" type="xint" value="144"/>
+<entry key="1" type="xint" value="217"/>
+<entry key="2" type="xint" value="79"/>
+<entry key="3" type="xint" value="76"/>
 </config>
 </config>
 </config>
@@ -127,11 +127,11 @@
 </config>
 </config>
 <config key="workflow_editor_settings">
-<entry key="workflow.editor.snapToGrid" type="xboolean" value="false"/>
-<entry key="workflow.editor.ShowGrid" type="xboolean" value="false"/>
-<entry key="workflow.editor.gridX" type="xint" value="-1"/>
-<entry key="workflow.editor.gridY" type="xint" value="-1"/>
-<entry key="workflow.editor.zoomLevel" type="xdouble" value="1.0"/>
+<entry key="workflow.editor.snapToGrid" type="xboolean" value="true"/>
+<entry key="workflow.editor.ShowGrid" type="xboolean" value="true"/>
+<entry key="workflow.editor.gridX" type="xint" value="20"/>
+<entry key="workflow.editor.gridY" type="xint" value="20"/>
+<entry key="workflow.editor.zoomLevel" type="xdouble" value="1.1"/>
 <entry key="workflow.editor.curvedConnections" type="xboolean" value="false"/>
 <entry key="workflow.editor.connectionWidth" type="xint" value="1"/>
 </config>

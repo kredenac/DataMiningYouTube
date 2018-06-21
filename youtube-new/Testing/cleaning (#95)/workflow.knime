@@ -11,7 +11,7 @@
 <entry key="lastEdited-when" type="xstring" isnull="true" value=""/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="CONFIGURED"/>
+<entry key="state" type="xstring" value="EXECUTED"/>
 <config key="workflow_credentials"/>
 <config key="nodes">
 <config key="node_56">
@@ -25,8 +25,8 @@
 <entry key="array-size" type="xint" value="4"/>
 <entry key="0" type="xint" value="484"/>
 <entry key="1" type="xint" value="257"/>
-<entry key="2" type="xint" value="81"/>
-<entry key="3" type="xint" value="78"/>
+<entry key="2" type="xint" value="79"/>
+<entry key="3" type="xint" value="76"/>
 </config>
 </config>
 </config>
@@ -41,8 +41,8 @@
 <entry key="array-size" type="xint" value="4"/>
 <entry key="0" type="xint" value="304"/>
 <entry key="1" type="xint" value="257"/>
-<entry key="2" type="xint" value="61"/>
-<entry key="3" type="xint" value="78"/>
+<entry key="2" type="xint" value="59"/>
+<entry key="3" type="xint" value="76"/>
 </config>
 </config>
 </config>
@@ -57,8 +57,8 @@
 <entry key="array-size" type="xint" value="4"/>
 <entry key="0" type="xint" value="864"/>
 <entry key="1" type="xint" value="257"/>
-<entry key="2" type="xint" value="107"/>
-<entry key="3" type="xint" value="78"/>
+<entry key="2" type="xint" value="103"/>
+<entry key="3" type="xint" value="76"/>
 </config>
 </config>
 </config>

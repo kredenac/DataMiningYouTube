@@ -341,7 +341,6 @@ Meta-čvor za čiščenje sadrži sledeće.
 \begin{center}
     \includegraphics[width=1\textwidth]{cleaning.png}
     \caption{Filtriranje sada nepotrebnih kolona}
-
 \end{center}
 \end{figure}
 
@@ -382,18 +381,171 @@ bitna je metrika za ljude koji žele da njihovi kanali budu što popularniji.
 \section{Klasifikacija}
 \label{sec:klasifikacija}
 % ==============================================================================
-....
+Nakon pretprocesiranja i čišćenja podataka, pre same klasifikacije izbacujemo atribut video\_id, normalizujemo podatke i delimo ih na skup za obučavanje i skup za testiranje.
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{before_classification.png}
+    \caption{Priprema podataka za klasifikaciju}
+\end{center}
+\end{figure}
+
+Koristeći tako modifikovane podatke, četiri algoritma će pokušati da predvide da li će video ponovo biti na trendingu. Svi meta parametri su podešeni kako bi se dobili što bolji rezultati, a konačni rezultati za svaki metod su:
+\\ 
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{decision_tree.png}
+    \caption{Stablo odlučivanja}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{SVM.png}
+    \caption{SVM}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{MLP.png}
+    \caption{MLP}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{Random_Forrest.png}
+    \caption{Random Forrest}
+\end{center}
+\end{figure}
+
+Svaki od metačvorova ima svoj Learner čvor, koji koristeći podatke sa trening skupa kreira model, koji se potom primenjuje na trening i test skupove, kako bi se njihovi rezultati uporedili.
+\\ \\
+Primećuje se da su svi parametri konfigurisani tako da nema mnogo preprilagođavanja ni potprilagođavanja, ali tačnost na trening skupovima ne prelazi 85\%. Situacija je takva pošto, iako dati skupovi imaju veliki broj redova i kolona, određeni parametri koji određuju da li će video biti u trendingu ne postoje, poput lokacije svakog pregleda. Čak i sa tim informacijama, moguće je da tačnost ne bi postigla dovoljno visoki stepen, zato što nije poznato kako funkcioniše youtube-ov algoritam za postavljanje videa na trending.
+\\ \\
+Takođe, treba primetiti da se algoritam stablo odlučivanja i RTF izvršavaju za manje od jednog minuta, MLP sa 3 skrivena sloja i 500 iteracija za 3 minuta, dok je SVM algoritmu, čiji je ulaz transformisan PCA procedurom na 4 dimenzije sa očuvanih 95\% podataka, potrebno više od 20 minuta na istom računaru i ima najlošije rezultate. Ovakav rezultat je posledica kompleksnosti SVM algoritma i nemogućnosti za finim podešavanjem parametara zbog dužine izvršavanja.
 % ==============================================================================
 \section{Pravila pridruživanja}
 \label{sec:pravila}
 % ==============================================================================
 
-x <= {y, z}
+Transformacijom niski tagova i naslova u nizove i primenom algoritma za generisanje pravila pridruživanja dobili smo sledeće rezultate:
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{association.png}
+    \caption{Asocijacija - Naslovi}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{association2.png}
+    \caption{Asocijacija - Tagovi}
+\end{center}
+\end{figure}
+
+Kako ne pokušavamo da uočimo pravila engleskog jezika, izbacili smo iz pretrage reči a, is, the, an, to, of, in, and, with, on. 
+\begin{lstlisting}
+String skip[] = {"a", "is", "the", "an", "", " ", "to", "of", "in", "and", "with", "on"};
+\end{lstlisting}
+Takođe, reči su transformisane tako da sadrže samo mala slova i da ne sadrže specijalne karaktere osim ', kako bi algoritam mogao da generalizuje što bolje pravila, umesto da da kreira nova zbog kreativnih naslova koji se neretko javljaju.
+
 
 % ==============================================================================
-\section{One vizualizacije mozda ovde?}
+\section{Vizuelizacije podataka}
 \label{sec:dod}
 % ==============================================================================
+
+U sledećim podsekcijama će se koristiti termin koji nije ranije definisan:
+angažovanost = (broj lajkova + broj dislajkova + broj komentara) / broj pregleda
+
+
+\subsection{Vizuelizacije numeričkih podataka}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{box_desc_word_count.png}
+    \caption{Broj reči u opisu}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{box_num-tag.png}
+    \caption{Broj tagova}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{box_title_word_count.png}
+    \caption{Broj reči u naslovu}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{box_trending.png}
+    \caption{Angažovanost}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{engagement_box_plot.png}
+    \caption{Angažovanost po državi}
+\end{center}
+\end{figure}
+
+\subsection{Vizuelizacije po kategorijama}
+
+U sekciji Pretrprocesiranje je opisan proces dodavanja kategorija u skup video klipova.  
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{categories_clips.png}
+    \caption{Broj klipova po kategorijama}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{categories_views.png}
+    \caption{Broj pregleda po kategorijama}
+\end{center}
+\end{figure}
+
+Na prethodne dve slike se može primetiti da većinu ne predstavlja ista kategorija. Takva informacija je i očekivana, zato što se pesme ne objavljuju često koliko zabavni klipovi, ali se preslušavaju daleko češće.
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{categories_desc.png}
+    \caption{Broj reči u opisu po kategorijama}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{categories_engagement.png}
+    \caption{Angažovanost po kategorijama}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{categories_perc-title.png}
+    \caption{Priprema podataka za klasifikaciju}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{categories_title.png}
+    \caption{Dužina naslova po kategorijama}
+\end{center}
+\end{figure}
 
 \end{document}
 
