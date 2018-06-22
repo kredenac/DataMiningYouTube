@@ -12,6 +12,9 @@
 \usepackage{subcaption}
 \usepackage{amsmath}
 \usepackage{verbatim}
+\usepackage{array}
+\usepackage[table]{xcolor}
+
 \graphicspath{ {./images/} }
 
 \usepackage[english,serbian]{babel}
@@ -142,7 +145,7 @@ description & opis video klipa  \\
 Ovaj skup podataka takođe sadrži i JSON datoteke za svaku od navedenih država.
 Razlog za to je što se skup tematskih kategorija klipova razlikovao među državama, pa se u JSON datotekama nalaze imena koja odgovaraju određenim identifikatorima kategorija.
 
-\subsection{Pretprocesiranje}
+\subsection{Pretprocesiranje} \label{pretprocesiranje}
 
 \begin{figure}[h!]
 \begin{center}
@@ -381,7 +384,7 @@ bitna je metrika za ljude koji žele da njihovi kanali budu što popularniji.
 \section{Klasifikacija}
 \label{sec:klasifikacija}
 % ==============================================================================
-Nakon pretprocesiranja i čišćenja podataka, pre same klasifikacije izbacujemo atribut video\_id, normalizujemo podatke i delimo ih na skup za obučavanje i skup za testiranje.
+Nakon pretprocesiranja i čišćenja podataka, pre same klasifikacije izbacuje se atribut \textit{video\_id}, normalizuju se podaci koji se dele na skup za obučavanje i skup za testiranje.
 
 \begin{figure}[h!]
 \begin{center}
@@ -390,62 +393,125 @@ Nakon pretprocesiranja i čišćenja podataka, pre same klasifikacije izbacujemo
 \end{center}
 \end{figure}
 
-Koristeći tako modifikovane podatke, četiri algoritma će pokušati da predvide da li će video ponovo biti na trendingu. Svi meta parametri su podešeni kako bi se dobili što bolji rezultati, a konačni rezultati za svaki metod su:
-\\ 
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{decision_tree.png}
-    \caption{Stablo odlučivanja}
-\end{center}
-\end{figure}
+Koristeći tako modifikovane podatke, četiri algoritma će pokušati da predvide da li će video ponovo biti na trendingu. Svi meta parametri su podešeni kako bi se dobili što bolji rezultati, a konačni rezultati za svaki metod klasifikacije su:
 
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{SVM.png}
-    \caption{SVM}
-\end{center}
-\end{figure}
+\begingroup
 
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{MLP.png}
-    \caption{MLP}
-\end{center}
-\end{figure}
+\renewcommand\arraystretch{1.3}
 
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{Random_Forrest.png}
-    \caption{Random Forrest}
-\end{center}
-\end{figure}
+\noindent\begin{tabular}{
+  | >{\ttfamily}p{2.2cm}
+  | >{\sffamily}p{2.2cm}
+  | >{\sffamily}p{5.85cm} |
+}
+\hline
+\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam} 
+  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost} 
+  & \multicolumn{1}{l|}{\bfseries\sffamily Matrica konfuzije} \\
+\hline
+& & \\[-2ex]
+Stablo odlučivanja \newline str:\pageref{fig:stabloOdlucivanja} & 83.648\%  &
+  \begin{tabular}[t]{
+    | >{\ttfamily\raggedright}p{1.5cm}
+    | >{\sffamily\raggedright}p{1.5cm}
+    | >{\sffamily}p{1.5cm} |
+  }
+  \firsthline
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno} 
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} netačno}  \\
+  \hline
+  \cellcolor{gray!20} tačno  & 9547 & 150 \\
+  \hline
+  \cellcolor{gray!20} netačno  & 1740 & 121 \\
+  \hline
+  \end{tabular} \\[10ex]
+
+\hline
+\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam} 
+  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost} 
+  & \multicolumn{1}{l|}{\bfseries\sffamily Matrica konfuzije} \\
+\hline
+& & \\[-2ex]
+SVM \newline str:\pageref{fig:SVM}  & 83.899\% &
+  \begin{tabular}[t]{
+    | >{\ttfamily\raggedright}p{1.5cm}
+    | >{\sffamily\raggedright}p{1.5cm}
+    | >{\sffamily}p{1.5cm} |
+  }
+  \firsthline
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno} 
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} netačno}  \\
+  \hline
+  \cellcolor{gray!20} tačno  & 9697 & 0 \\
+  \hline
+  \cellcolor{gray!20} netačno  & 1861 & 0 \\
+  \hline
+  \end{tabular} \\[10ex]
+
+\hline
+\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam} 
+  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost} 
+  & \multicolumn{1}{l|}{\bfseries\sffamily Matrica konfuzije} \\
+\hline
+& & \\[-2ex]
+MLP \newline str:\pageref{fig:MLP}  & 83.708\% &
+  \begin{tabular}[t]{
+    | >{\ttfamily\raggedright}p{1.5cm}
+    | >{\sffamily\raggedright}p{1.5cm}
+    | >{\sffamily}p{1.5cm} |
+  }
+  \firsthline
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno} 
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} netačno}  \\
+  \hline
+  \cellcolor{gray!20} tačno  & 9659 & 37 \\
+  \hline
+  \cellcolor{gray!20} netačno  & 1844 & 16 \\
+  \hline
+  \end{tabular} \\[10ex]
+
+\hline
+\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam} 
+  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost} 
+  & \multicolumn{1}{l|}{\bfseries\sffamily Matrica konfuzije} \\
+\hline
+& & \\[-2ex]
+Random Forrest \newline str:\pageref{fig:randomForrest}  & 83.656\% &
+  \begin{tabular}[t]{
+    | >{\ttfamily\raggedright}p{1.5cm}
+    | >{\sffamily\raggedright}p{1.5cm}
+    | >{\sffamily}p{1.5cm} |
+  }
+  \firsthline
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno} 
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} netačno}  \\
+  \hline
+  \cellcolor{gray!20} tačno  & 22442 & 183 \\
+  \hline
+  \cellcolor{gray!20} netačno  & 3908 & 435 \\
+  \hline
+  \end{tabular} \\[10ex]
+
+\hline
+\end{tabular}
+\\ \\
+\endgroup
+
 
 Svaki od metačvorova ima svoj Learner čvor, koji koristeći podatke sa trening skupa kreira model, koji se potom primenjuje na trening i test skupove, kako bi se njihovi rezultati uporedili.
 \\ \\
-Primećuje se da su svi parametri konfigurisani tako da nema mnogo preprilagođavanja ni potprilagođavanja, ali tačnost na trening skupovima ne prelazi 85\%. Situacija je takva pošto, iako dati skupovi imaju veliki broj redova i kolona, određeni parametri koji određuju da li će video biti u trendingu ne postoje, poput lokacije svakog pregleda. Čak i sa tim informacijama, moguće je da tačnost ne bi postigla dovoljno visoki stepen, zato što nije poznato kako funkcioniše youtube-ov algoritam za postavljanje videa na trending.
+Primećuje se da su svi parametri konfigurisani tako da nema mnogo preprilagođavanja ni potprilagođavanja, ali tačnost na trening skupovima ne prelazi 85\%. Situacija je takva pošto, iako dati skupovi imaju veliki broj redova i kolona, određeni parametri koji određuju da li će video biti u trendingu ne postoje, poput lokacije svakog pregleda. Čak i sa tim informacijama, moguće je da tačnost ne bi postigla dovoljno visoki stepen, zato što nije poznato kako funkcioniše Youtube-ov algoritam za postavljanje videa na trending.
 \\ \\
-Takođe, treba primetiti da se algoritam stablo odlučivanja i RTF izvršavaju za manje od jednog minuta, MLP sa 3 skrivena sloja i 500 iteracija za 3 minuta, dok je SVM algoritmu, čiji je ulaz transformisan PCA procedurom na 4 dimenzije sa očuvanih 95\% podataka, potrebno više od 20 minuta na istom računaru i ima najlošije rezultate. Ovakav rezultat je posledica kompleksnosti SVM algoritma i nemogućnosti za finim podešavanjem parametara zbog dužine izvršavanja.
+Takođe, treba primetiti da se algoritam stablo odlučivanja i Random Forrest izvršavaju za manje od jednog minuta, MLP sa 3 skrivena sloja i 500 iteracija za 3 minuta, dok je SVM algoritmu, čiji je ulaz transformisan PCA procedurom na 4 dimenzije sa očuvanih 95\% podataka, potrebno više od 20 minuta na istom računaru i ima najlošije rezultate. Ovakav rezultat je posledica kompleksnosti SVM algoritma i nemogućnosti za finim podešavanjem parametara zbog dužine izvršavanja.
+
+
 % ==============================================================================
 \section{Pravila pridruživanja}
 \label{sec:pravila}
 % ==============================================================================
 
-Transformacijom niski tagova i naslova u nizove i primenom algoritma za generisanje pravila pridruživanja dobili smo sledeće rezultate:
-
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{association.png}
-    \caption{Asocijacija - Naslovi}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{association2.png}
-    \caption{Asocijacija - Tagovi}
-\end{center}
-\end{figure}
-
+Transformacijom niski tagova i naslova u nizove i primenom algoritma za generisanje pravila pridruživanja dobili smo rezultate: \ref{fig:asoc1}, \ref{fig:asoc2}.
+\\
 Kako ne pokušavamo da uočimo pravila engleskog jezika, izbacili smo iz pretrage reči a, is, the, an, to, of, in, and, with, on. 
 \begin{lstlisting}
 String skip[] = {"a", "is", "the", "an", "", " ", "to", "of", "in", "and", "with", "on"};
@@ -458,23 +524,83 @@ Takođe, reči su transformisane tako da sadrže samo mala slova i da ne sadrže
 \label{sec:dod}
 % ==============================================================================
 
-U sledećim podsekcijama će se koristiti termin koji nije ranije definisan:
-angažovanost = (broj lajkova + broj dislajkova + broj komentara) / broj pregleda
+U nastavku će se koristiti termin koji nije ranije definisan - \textbf{angažovanost}:
+\newline
 
+$$\text{angažovanost} = \frac{\text{broj lajkova} + \text{broj dislajkova} + \text{broj komentara}}{\text{broj pregleda}}$$
 
 \subsection{Vizuelizacije numeričkih podataka}
 
+Na slikama od \ref{fig:boxDesc} do \ref{fig:boxEngagement} možemo videti vizuelizaciju nekih osobina video klipova poput broja reči u opisu i naslovu, broja tagova, dana koliko je video bio u trendingu i angažovanost po državama. Na svakoj slici se pojavljuje veliki broj elemenata van granice. Što se tiče broja reči i tagova, jasno je da postoji veliki broj takvih elemenata, zato što Youtube-ov algoritam mora da bude nepoznat ljudima, odnosno, ukoliko bi favorizovao neku predefinisanu granicu, kreatori klipova bi se držali toga, što Youtube-u nije cilj.
+\\
+Što se tiče dana u trendingu i angažovanosti, i ti podaci su očekivani zbog socijalnog aspekta. Ponekad se pojavi klip koji izazove burne reakcije i on bude duže na trendingu, ali obično nije takav slulčaj. Što se angažovanosti tiče, takođe se javljaju klipovi koji izazivaju veliki broj komentara i obično dislajkova, koji odstupaju od granice.
+
+\subsection{Vizuelizacije po kategorijama}
+
+U sekciji pretrprocesiranje (\ref{pretprocesiranje}) je opisan proces dodavanja kategorija u skup video klipova.  
+
+Na slikama \ref{fig:brojKlipova} i \ref{fig:brojPregleda} se može primetiti da većinu ne predstavlja ista kategorija. Takva informacija je i očekivana, zato što se pesme ne objavljuju često koliko zabavni klipovi, ali se preslušavaju daleko češće.
+
+% KLASIFIKACIJA
+
 \begin{figure}[h!]
 \begin{center}
-    \includegraphics[width=1\textwidth]{box_desc_word_count.png}
-    \caption{Broj reči u opisu}
+    \includegraphics[width=1\textwidth]{decision_tree.png}
+    \caption{Stablo odlučivanja}
+\end{center}
+\label{fig:stabloOdlucivanja}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{SVM.png}
+    \caption{SVM}
+\end{center}
+\label{fig:SVM}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{MLP.png}
+    \caption{MLP}
+\end{center}
+\label{fig:MLP}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{Random_Forrest.png}
+    \caption{Random Forrest}
+\end{center}
+\label{fig:randomForrest}
+\end{figure}
+
+% ASOC
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{association.png}
+    \caption{Asocijacija - Naslovi}
+    \label{fig:asoc1}
 \end{center}
 \end{figure}
 
 \begin{figure}[h!]
 \begin{center}
-    \includegraphics[width=1\textwidth]{box_num-tag.png}
-    \caption{Broj tagova}
+    \includegraphics[width=1\textwidth]{association2.png}
+    \caption{Asocijacija - Tagovi}
+     \label{fig:asoc2}
+\end{center}
+\end{figure}
+
+
+% VIZUELIZACIJA NUM
+
+\begin{figure}[h!]
+\begin{center}
+    \includegraphics[width=1\textwidth]{box_desc_word_count.png}
+    \caption{Broj reči u opisu}
+    \label{fig:boxDesc}
 \end{center}
 \end{figure}
 
@@ -487,8 +613,15 @@ angažovanost = (broj lajkova + broj dislajkova + broj komentara) / broj pregled
 
 \begin{figure}[h!]
 \begin{center}
+    \includegraphics[width=1\textwidth]{box_num-tag.png}
+    \caption{Broj tagova}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
     \includegraphics[width=1\textwidth]{box_trending.png}
-    \caption{Angažovanost}
+    \caption{Dani u trendingu}
 \end{center}
 \end{figure}
 
@@ -496,17 +629,17 @@ angažovanost = (broj lajkova + broj dislajkova + broj komentara) / broj pregled
 \begin{center}
     \includegraphics[width=1\textwidth]{engagement_box_plot.png}
     \caption{Angažovanost po državi}
+        \label{fig:boxEngagement}
 \end{center}
 \end{figure}
 
-\subsection{Vizuelizacije po kategorijama}
-
-U sekciji Pretrprocesiranje je opisan proces dodavanja kategorija u skup video klipova.  
+%VIZUELIZACIJA KAT
 
 \begin{figure}[h!]
 \begin{center}
     \includegraphics[width=1\textwidth]{categories_clips.png}
     \caption{Broj klipova po kategorijama}
+    \label{fig:brojKlipova}
 \end{center}
 \end{figure}
 
@@ -514,10 +647,9 @@ U sekciji Pretrprocesiranje je opisan proces dodavanja kategorija u skup video k
 \begin{center}
     \includegraphics[width=1\textwidth]{categories_views.png}
     \caption{Broj pregleda po kategorijama}
+    \label{fig:brojPregleda}
 \end{center}
 \end{figure}
-
-Na prethodne dve slike se može primetiti da većinu ne predstavlja ista kategorija. Takva informacija je i očekivana, zato što se pesme ne objavljuju često koliko zabavni klipovi, ali se preslušavaju daleko češće.
 
 \begin{figure}[h!]
 \begin{center}
