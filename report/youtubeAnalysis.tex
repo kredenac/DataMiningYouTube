@@ -14,6 +14,7 @@
 \usepackage{verbatim}
 \usepackage{array}
 \usepackage[table]{xcolor}
+\usepackage{float}
 
 \graphicspath{ {./images/} }
 
@@ -79,8 +80,8 @@
 \section{Uvod}
 \label{sec:uvod}
 % ==============================================================================
-Skup podataka ``Trending YouTube Video Statistics'' sadrži informacije o YouTube video klipovima koji su se pojavili na Trending listi.
-Klipovi koji se nalaze na Trendingu su u tom trenutku aktuelni, popularni ili relevantni. Neće svaki klip sa mnogo pregleda biti na trendingu,
+Skup podataka ``Trending YouTube Video Statistics'' sadrži informacije o YouTube video klipovima koji su se pojavili na trending listi.
+Klipovi koji se nalaze na trendingu su u tom trenutku aktuelni, popularni ili relevantni. Neće svaki klip sa mnogo pregleda biti na trendingu,
  pritom se trending liste razlikuju za svaku državu. Podaci su nastali višemesečnim prikupljanjem klipova sa trending liste korišćenjem YouTube API.
 Skup podataka se može naći na adresi \url{https://www.kaggle.com/datasnaek/youtube-new}.
 Za obradu tokom ovog projekta su korišćeni KNIME platforma i Java programski jezik.
@@ -96,46 +97,46 @@ vizuelizacije podataka.
 
 \subsection{Opis skupa podataka}
 Podaci se nalaze u više tabela: US, GB, DE,
-CA i FR (SAD, Velika Britanija, Nemačka, Kanada i Francuska redom). 
+CA i FR (SAD, Velika Britanija, Nemačka, Kanada i Francuska redom).
 Svaki klip se može naći više puta na trendingu.
 Primera radi, US tabela sadrži 38549 redova, među kojima je zapravo  6201 različitih klipova.
 
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
-\begin{tabular}{ |c|c| } 
+\begin{tabular}{ |c|c| }
  \hline
- video\_id & jedinstveni identifikator svakog video klipa  \\ 
+ video\_id & jedinstveni identifikator svakog video klipa  \\
 \hline
- trending\_date & datum kad je klip bio na trendingu (yy.dd.mm)  \\ 
+ trending\_date & datum kad je klip bio na trendingu (yy.dd.mm)  \\
 \hline
- title & naziv klipa  \\ 
+ title & naziv klipa  \\
 \hline
- channel\_title & naziv kanala koji je postavio klip  \\ 
+ channel\_title & naziv kanala koji je postavio klip  \\
 \hline
- category\_id & jedinstveni identifikator tematske kategorije klipa  \\ 
+ category\_id & jedinstveni identifikator tematske kategorije klipa  \\
 \hline
-publish\_time & vreme postavljanja klipa (yyyy-mm-ddThh:mm:ss.000Z)\\ 
+publish\_time & vreme postavljanja klipa (yyyy-mm-ddThh:mm:ss.000Z)\\
 \hline
-tags & ključne reči, u formatu tag1|tag2|... |tagn  \\ 
+tags & ključne reči, u formatu tag1|tag2|... |tagn  \\
 \hline
-views & broj pregleda  \\ 
+views & broj pregleda  \\
 \hline
-likes & broj ljudi koji su izabrali da im se sviđa klip\\ 
+likes & broj ljudi koji su izabrali da im se sviđa klip\\
 \hline
-dislikes & broj ljudi koji su izabrali da im se ne sviđa klip   \\ 
+dislikes & broj ljudi koji su izabrali da im se ne sviđa klip   \\
 \hline
-comment\_count & broj komentara \\ 
+comment\_count & broj komentara \\
 \hline
-thumbnail\_link & link ka sličici koja predstavlja video klip  \\ 
+thumbnail\_link & link ka sličici koja predstavlja video klip  \\
 \hline
-comments\_disabled & da li su komentari isključeni  \\ 
+comments\_disabled & da li su komentari isključeni  \\
 \hline
-ratings\_disabled & da li je ocenjivanje isključeno \\ 
+ratings\_disabled & da li je ocenjivanje isključeno \\
 \hline
-video\_error\_or\_removed & da li video ima grešku ili je uklonjen  \\ 
+video\_error\_or\_removed & da li video ima grešku ili je uklonjen  \\
 \hline
-description & opis video klipa  \\ 
+description & opis video klipa  \\
  \hline
 \end{tabular}
 \caption{Opis datoteke USvideos.csv. Nazivi kolona su dati levo, a njihovi opisi desno.}
@@ -147,7 +148,7 @@ Razlog za to je što se skup tematskih kategorija klipova razlikovao među drža
 
 \subsection{Pretprocesiranje} \label{pretprocesiranje}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{Global.png}
     \caption{Globalni pogled na KNIME projekat}
@@ -161,13 +162,13 @@ Nakon toga se svi spajaju u jednu ogrmonu tabelu.
 Preprocessing meta-čvor sadrži obrade koje su potrebne za sav dalji tok analize.
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{preprocessing.png}
     \caption{Pretprocesiranje}
 \end{center}
 \end{figure}
-Prvo se uklanja kolona sa linkom na sliku pošto se to neće koristiti. Potom se konvertuju stringovski zapisi datuma u datumske tipove. 
+Prvo se uklanja kolona sa linkom na sliku pošto se to neće koristiti. Potom se konvertuju stringovski zapisi datuma u datumske tipove.
 Za svaki video\_id se broji koliko puta se pojavljuje u toj tabeli, pa se potom spajaju kako bi se na sve redove nadovezao taj atribut.
 Takođe se izdvaja i lista svih datuma kad je taj klip bio na trendingu.
 Za neke operacije nije bilo dovoljno koristiti ugrađene operacije preko običnih KNIME  čvorova, pa se tada koristi ``Java snippet''.
@@ -183,7 +184,7 @@ public void snippet() throws TypeException, ColumnException, Abort {
 
 	int c = 0;
 	// brojanje koliko instanci je bilo na trendingu pre ove instance
-	for (LocalDate e : c_Sortedlisttrending_date){	
+	for (LocalDate e : c_Sortedlisttrending_date){
 		if (l.compareTo(e) >= 0 ){
 			c++;
 		}
@@ -220,7 +221,7 @@ public void snippet() throws TypeException, ColumnException, Abort {
 	long daysBetween = ChronoUnit.DAYS.
 		between(c_publish_time.toLocalDate(), c_trending_date);
 
-	out_days_after_publish = (int)daysBetween;	
+	out_days_after_publish = (int)daysBetween;
 }
 \end{lstlisting}
 
@@ -322,7 +323,7 @@ if (out_title_word_count == 0){
 } else {
 	out_title_capital_percentage = title_capital_count*1.0/out_title_word_count;
 	out_title_upper_case_percentage = title_upper_count*1.0/out_title_word_count;
-	
+
 }
 
 // ako nije bilo nijedne utf-8 reci u opisu
@@ -340,7 +341,7 @@ if (out_description_word_count == 0){
 
 Meta-čvor za čiščenje sadrži sledeće.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{cleaning.png}
     \caption{Filtriranje sada nepotrebnih kolona}
@@ -352,7 +353,7 @@ stringovski, kako bi se posmatrao kao kategorički atribut.
 
 Nakon pretprocesiranja i čišćenja svih csv datoteka potrebno ih je spojiti u jednu veliku tabelu. To se dešava unutar concatenate meta-čvora.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{concatenation.png}
     \caption{Sadržaj concatenate meta-čvora i detalji grupisanja}
@@ -363,12 +364,12 @@ Nakon pretprocesiranja i čišćenja svih csv datoteka potrebno ih je spojiti u 
 Na kraju su video klipovi grupisani tako da se jedan video\_id nalazi samo u jednom redu, detalji grupisanja su prikazani na slici \ref{fig:concat}.
 
 Da bi se dobili odgovarajuci nazivi tematskih kategorija video klipova potrebno je spojiti csv redove sa redovima iz JSON datoteka.
-Nakon ucitavanja JSON datoteke, potrebno je idvojiti sve elemente niza korišćenjem JSON Path selektora. 
-Tada je na raspolaganju samo jedan red koji sadrži sve JSON objekte koji čine pomenuti niz. 
+Nakon ucitavanja JSON datoteke, potrebno je idvojiti sve elemente niza korišćenjem JSON Path selektora.
+Tada je na raspolaganju samo jedan red koji sadrži sve JSON objekte koji čine pomenuti niz.
 Pomoću ungroup čvora dobija se više redova gde svaki predstavlja jedan element početnog niza.
 Ponovnim korišćenjem JSON path selektora dobija se tabela koja u svakom redu umesto jednog JSON objekta
 sada ima dva atributa. Jedan je identifikator kategorije, a drugi je njen naziv na engleskom.
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{json_of_categories.png}
     \caption{Pretprocesiranje JSON datoteka}
@@ -376,17 +377,14 @@ sada ima dva atributa. Jedan je identifikator kategorije, a drugi je njen naziv 
 \end{center}
 \end{figure}
 
-Na slici \ref{fig:global} se vide dva Math Formula čvora, koji računaju dva nova atributa koje je zanimljivo analizirati.
-Prvi se odnosi na udeo komentara u odnosu na broj pregleda video klipa. Drugi je jednak 
-$(likes + dislikes + comments) / views$ i označava koliko su gledaoci određenog klipa aktivni na njemu. Na englsekom se naziva engagement i 
-bitna je metrika za ljude koji žele da njihovi kanali budu što popularniji.
+
 % ==============================================================================
 \section{Klasifikacija}
 \label{sec:klasifikacija}
 % ==============================================================================
 Nakon pretprocesiranja i čišćenja podataka, pre same klasifikacije izbacuje se atribut \textit{video\_id}, normalizuju se podaci koji se dele na skup za obučavanje i skup za testiranje.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{before_classification.png}
     \caption{Priprema podataka za klasifikaciju}
@@ -405,8 +403,8 @@ Koristeći tako modifikovane podatke, četiri algoritma će pokušati da predvid
   | >{\sffamily}p{5.85cm} |
 }
 \hline
-\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam} 
-  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost} 
+\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam}
+  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost}
   & \multicolumn{1}{l|}{\bfseries\sffamily Matrica konfuzije} \\
 \hline
 & & \\[-2ex]
@@ -417,7 +415,7 @@ Stablo odlučivanja \newline str:\pageref{fig:stabloOdlucivanja} & 83.648\%  &
     | >{\sffamily}p{1.5cm} |
   }
   \firsthline
-    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno} 
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno}
     & \multicolumn{1}{l|}{\cellcolor{gray!20} netačno}  \\
   \hline
   \cellcolor{gray!20} tačno  & 9547 & 150 \\
@@ -427,8 +425,8 @@ Stablo odlučivanja \newline str:\pageref{fig:stabloOdlucivanja} & 83.648\%  &
   \end{tabular} \\[10ex]
 
 \hline
-\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam} 
-  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost} 
+\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam}
+  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost}
   & \multicolumn{1}{l|}{\bfseries\sffamily Matrica konfuzije} \\
 \hline
 & & \\[-2ex]
@@ -439,7 +437,7 @@ SVM \newline str:\pageref{fig:SVM}  & 83.899\% &
     | >{\sffamily}p{1.5cm} |
   }
   \firsthline
-    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno} 
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno}
     & \multicolumn{1}{l|}{\cellcolor{gray!20} netačno}  \\
   \hline
   \cellcolor{gray!20} tačno  & 9697 & 0 \\
@@ -449,8 +447,8 @@ SVM \newline str:\pageref{fig:SVM}  & 83.899\% &
   \end{tabular} \\[10ex]
 
 \hline
-\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam} 
-  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost} 
+\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam}
+  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost}
   & \multicolumn{1}{l|}{\bfseries\sffamily Matrica konfuzije} \\
 \hline
 & & \\[-2ex]
@@ -461,7 +459,7 @@ MLP \newline str:\pageref{fig:MLP}  & 83.708\% &
     | >{\sffamily}p{1.5cm} |
   }
   \firsthline
-    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno} 
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno}
     & \multicolumn{1}{l|}{\cellcolor{gray!20} netačno}  \\
   \hline
   \cellcolor{gray!20} tačno  & 9659 & 37 \\
@@ -471,8 +469,8 @@ MLP \newline str:\pageref{fig:MLP}  & 83.708\% &
   \end{tabular} \\[10ex]
 
 \hline
-\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam} 
-  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost} 
+\rowcolor{gray!20}\multicolumn{1}{|l|}{\bfseries\sffamily Algoritam}
+  & \multicolumn{1}{l|}{\bfseries\sffamily Tačnost}
   & \multicolumn{1}{l|}{\bfseries\sffamily Matrica konfuzije} \\
 \hline
 & & \\[-2ex]
@@ -483,12 +481,12 @@ Random Forrest \newline str:\pageref{fig:randomForrest}  & 83.656\% &
     | >{\sffamily}p{1.5cm} |
   }
   \firsthline
-    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno} 
+    & \multicolumn{1}{l|}{\cellcolor{gray!20} tačno}
     & \multicolumn{1}{l|}{\cellcolor{gray!20} netačno}  \\
   \hline
-  \cellcolor{gray!20} tačno  & 22442 & 183 \\
+  \cellcolor{gray!20} tačno  & 9633 & 64 \\
   \hline
-  \cellcolor{gray!20} netačno  & 3908 & 435 \\
+  \cellcolor{gray!20} netačno  & 1825 &  36 \\
   \hline
   \end{tabular} \\[10ex]
 
@@ -502,7 +500,41 @@ Svaki od metačvorova ima svoj Learner čvor, koji koristeći podatke sa trening
 \\ \\
 Primećuje se da su svi parametri konfigurisani tako da nema mnogo preprilagođavanja ni potprilagođavanja, ali tačnost na trening skupovima ne prelazi 85\%. Situacija je takva pošto, iako dati skupovi imaju veliki broj redova i kolona, određeni parametri koji određuju da li će video biti u trendingu ne postoje, poput lokacije svakog pregleda. Čak i sa tim informacijama, moguće je da tačnost ne bi postigla dovoljno visoki stepen, zato što nije poznato kako funkcioniše Youtube-ov algoritam za postavljanje videa na trending.
 \\ \\
-Takođe, treba primetiti da se algoritam stablo odlučivanja i Random Forrest izvršavaju za manje od jednog minuta, MLP sa 3 skrivena sloja i 500 iteracija za 3 minuta, dok je SVM algoritmu, čiji je ulaz transformisan PCA procedurom na 4 dimenzije sa očuvanih 95\% podataka, potrebno više od 20 minuta na istom računaru i ima najlošije rezultate. Ovakav rezultat je posledica kompleksnosti SVM algoritma i nemogućnosti za finim podešavanjem parametara zbog dužine izvršavanja.
+Takođe, treba primetiti da se algoritam stablo odlučivanja i Random Forrest izvršavaju za manje od jednog minuta, MLP sa 3 skrivena sloja i 500 iteracija za 3 minuta, dok je SVM algoritmu, čiji je ulaz transformisan PCA procedurom na 4 dimenzije sa očuvanih 95\% podataka, potrebno više od 90 minuta na istom računaru i ima najlošije rezultate. Ovakav rezultat je posledica kompleksnosti SVM algoritma i nemogućnosti za finim podešavanjem parametara zbog dužine izvršavanja.
+
+% KLASIFIKACIJA
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{decision_tree.png}
+    \caption{Stablo odlučivanja}
+\end{center}
+\label{fig:stabloOdlucivanja}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{SVM.png}
+    \caption{SVM}
+\end{center}
+\label{fig:SVM}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{MLP.png}
+    \caption{MLP}
+\end{center}
+\label{fig:MLP}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{Random_Forrest.png}
+    \caption{Random Forrest}
+\end{center}
+\label{fig:randomForrest}
+\end{figure}
 
 
 % ==============================================================================
@@ -512,11 +544,29 @@ Takođe, treba primetiti da se algoritam stablo odlučivanja i Random Forrest iz
 
 Transformacijom niski tagova i naslova u nizove i primenom algoritma za generisanje pravila pridruživanja dobili smo rezultate: \ref{fig:asoc1}, \ref{fig:asoc2}.
 \\
-Kako ne pokušavamo da uočimo pravila engleskog jezika, izbacili smo iz pretrage reči a, is, the, an, to, of, in, and, with, on. 
+Kako ne pokušavamo da uočimo pravila engleskog jezika, izbacili smo iz pretrage reči a, is, the, an, to, of, in, and, with, on.
 \begin{lstlisting}
 String skip[] = {"a", "is", "the", "an", "", " ", "to", "of", "in", "and", "with", "on"};
 \end{lstlisting}
 Takođe, reči su transformisane tako da sadrže samo mala slova i da ne sadrže specijalne karaktere osim ', kako bi algoritam mogao da generalizuje što bolje pravila, umesto da da kreira nova zbog kreativnih naslova koji se neretko javljaju.
+
+% ASOC
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{association.png}
+    \caption{Asocijacija - Naslovi}
+    \label{fig:asoc1}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{association2.png}
+    \caption{Asocijacija - Tagovi}
+     \label{fig:asoc2}
+\end{center}
+\end{figure}
 
 
 % ==============================================================================
@@ -529,6 +579,11 @@ U nastavku će se koristiti termin koji nije ranije definisan - \textbf{angažov
 
 $$\text{angažovanost} = \frac{\text{broj lajkova} + \text{broj dislajkova} + \text{broj komentara}}{\text{broj pregleda}}$$
 
+Na slici \ref{fig:global} se vide dva Math Formula čvora, koji računaju dva nova atributa koje je zanimljivo analizirati.
+Angažovanost označava koliko su gledaoci određenog klipa aktivni na njemu. Na englsekom se naziva engagement i
+bitna je metrika za ljude koji žele da njihovi kanali budu što popularniji.
+
+
 \subsection{Vizuelizacije numeričkih podataka}
 
 Na slikama od \ref{fig:boxDesc} do \ref{fig:boxEngagement} možemo videti vizuelizaciju nekih osobina video klipova poput broja reči u opisu i naslovu, broja tagova, dana koliko je video bio u trendingu i angažovanost po državama. Na svakoj slici se pojavljuje veliki broj elemenata van granice. Što se tiče broja reči i tagova, jasno je da postoji veliki broj takvih elemenata, zato što Youtube-ov algoritam mora da bude nepoznat ljudima, odnosno, ukoliko bi favorizovao neku predefinisanu granicu, kreatori klipova bi se držali toga, što Youtube-u nije cilj.
@@ -537,66 +592,13 @@ Na slikama od \ref{fig:boxDesc} do \ref{fig:boxEngagement} možemo videti vizuel
 
 \subsection{Vizuelizacije po kategorijama}
 
-U sekciji pretrprocesiranje (\ref{pretprocesiranje}) je opisan proces dodavanja kategorija u skup video klipova.  
+U sekciji pretrprocesiranje (\ref{pretprocesiranje}) je opisan proces dodavanja kategorija u skup video klipova.
 
 Na slikama \ref{fig:brojKlipova} i \ref{fig:brojPregleda} se može primetiti da većinu ne predstavlja ista kategorija. Takva informacija je i očekivana, zato što se pesme ne objavljuju često koliko zabavni klipovi, ali se preslušavaju daleko češće.
 
-% KLASIFIKACIJA
-
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{decision_tree.png}
-    \caption{Stablo odlučivanja}
-\end{center}
-\label{fig:stabloOdlucivanja}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{SVM.png}
-    \caption{SVM}
-\end{center}
-\label{fig:SVM}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{MLP.png}
-    \caption{MLP}
-\end{center}
-\label{fig:MLP}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{Random_Forrest.png}
-    \caption{Random Forrest}
-\end{center}
-\label{fig:randomForrest}
-\end{figure}
-
-% ASOC
-
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{association.png}
-    \caption{Asocijacija - Naslovi}
-    \label{fig:asoc1}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-    \includegraphics[width=1\textwidth]{association2.png}
-    \caption{Asocijacija - Tagovi}
-     \label{fig:asoc2}
-\end{center}
-\end{figure}
-
-
 % VIZUELIZACIJA NUM
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{box_desc_word_count.png}
     \caption{Broj reči u opisu}
@@ -604,28 +606,28 @@ Na slikama \ref{fig:brojKlipova} i \ref{fig:brojPregleda} se može primetiti da 
 \end{center}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{box_title_word_count.png}
     \caption{Broj reči u naslovu}
 \end{center}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{box_num-tag.png}
     \caption{Broj tagova}
 \end{center}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{box_trending.png}
     \caption{Dani u trendingu}
 \end{center}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{engagement_box_plot.png}
     \caption{Angažovanost po državi}
@@ -633,9 +635,14 @@ Na slikama \ref{fig:brojKlipova} i \ref{fig:brojPregleda} se može primetiti da 
 \end{center}
 \end{figure}
 
+
+
+
+
+
 %VIZUELIZACIJA KAT
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{categories_clips.png}
     \caption{Broj klipova po kategorijama}
@@ -643,7 +650,7 @@ Na slikama \ref{fig:brojKlipova} i \ref{fig:brojPregleda} se može primetiti da 
 \end{center}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{categories_views.png}
     \caption{Broj pregleda po kategorijama}
@@ -651,28 +658,28 @@ Na slikama \ref{fig:brojKlipova} i \ref{fig:brojPregleda} se može primetiti da 
 \end{center}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{categories_desc.png}
     \caption{Broj reči u opisu po kategorijama}
 \end{center}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{categories_engagement.png}
     \caption{Angažovanost po kategorijama}
 \end{center}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{categories_perc-title.png}
-    \caption{Priprema podataka za klasifikaciju}
+    \caption{Odnos broja komentara i pregleda po kategoriji }
 \end{center}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{categories_title.png}
     \caption{Dužina naslova po kategorijama}
@@ -680,4 +687,3 @@ Na slikama \ref{fig:brojKlipova} i \ref{fig:brojPregleda} se može primetiti da 
 \end{figure}
 
 \end{document}
-
