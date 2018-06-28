@@ -84,7 +84,7 @@ Skup podataka ``Trending YouTube Video Statistics'' sadrži informacije o YouTub
 Klipovi koji se nalaze na trendingu su u tom trenutku aktuelni, popularni ili relevantni. Neće svaki klip sa mnogo pregleda biti na trendingu,
  pritom se trending liste razlikuju za svaku državu. Podaci su nastali višemesečnim prikupljanjem klipova sa trending liste korišćenjem YouTube API.
 Skup podataka se može naći na adresi \url{https://www.kaggle.com/datasnaek/youtube-new}.
-Za obradu tokom ovog projekta su korišćeni KNIME platforma i Java programski jezik.
+Za obradu tokom ovog projekta su korišćeni KNIME platforma i Java programski jezik, kao i IMB SPSS Modeler za klasterovanje.
 
 Prvo će biti dat opis podataka, potom pregled KNIME projekta i kako je rađeno pretprocesiranje. Nakon toga će biti prikazano korišćenje algoritama i njihovi rezultati, a na kraju
 vizuelizacije podataka.
@@ -581,9 +581,9 @@ a standardno odstupanje jedan.
 Parametri za Kohonena su uzeti da budu 2 za širinu i 4 za visinu.
 
 
-Na prvoj slici se može videti jasna separacija klastera. Levi deo grafika čine podaci iz prvog klastera, dok donji deo čine iz četvrtog. Drugi i treći klaster se nalaze blizu koordinatnog početka, ali takođe vidljivo razdvojeni.
+Na slici \ref{fig:ko2} se može videti jasna separacija klastera. Levi deo grafika čine podaci iz prvog klastera, dok donji deo čine iz četvrtog. Drugi i treći klaster se nalaze blizu koordinatnog početka, ali takođe vidljivo razdvojeni.
 
-Što se druge slike tiče, ubačena je dimenzija više, da bi se jasnije videlo grupisanje elemenata iz druge klase, dok su prva i četvrta klasa dobro grupisane i bez informacije o broju dana u trendingu.
+Na slici \ref{fig:ko3} ubačena je dimenzija više, da bi se jasnije videlo grupisanje elemenata iz drugog klastera, dok su prvi i četvrti klasteri dobro grupisani i bez informacije o broju dana u trendingu.
 
 Ovo klasterovanje jasno pokazuje korelaciju između broja dana nakon objavljivanja i atributa poput angažovanosti, 
 broja lajkova i komentara. Ta informacija nam govori da klipovi koji su brzo došli na trending imaju veći odziv gledalaca od
@@ -594,18 +594,16 @@ broja lajkova i komentara. Ta informacija nam govori da klipovi koji su brzo do�
 \begin{center}
     \includegraphics[width=1\textwidth]{Kohonen.png}
     \caption{Kohonen - rezultat klasterovanja}
-     \label{fig:asoc2}
+     \label{fig:ko1}
 \end{center}
 \end{figure}
-
-
 
 
 \begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{Kohonen_engagement_days_after_publish.png}
     \caption{Kohonen klasteri - angažovanost i broj dana posle obljavljivanja}
-     \label{fig:asoc2}
+     \label{fig:ko2}
 \end{center}
 \end{figure}
 
@@ -613,7 +611,7 @@ broja lajkova i komentara. Ta informacija nam govori da klipovi koji su brzo do�
 \begin{center}
     \includegraphics[width=1\textwidth]{Kohonen_engagement_views_days_trending.png}
     \caption{Kohonen klasteri - angažovanost, broj pregleda i broj dana na trendingu}
-     \label{fig:asoc2}
+     \label{fig:ko3}
 \end{center}
 \end{figure}
 
@@ -623,19 +621,27 @@ broja lajkova i komentara. Ta informacija nam govori da klipovi koji su brzo do�
 \begin{center}
     \includegraphics[width=1\textwidth]{Kmeans.png}
     \caption{K-sredina - rezultat klasterovanja}
-     \label{fig:asoc2}
+     \label{fig:km1}
 \end{center}
 \end{figure}
 
+
+
 Analizom rezultata algoritma k-sredina se vidi da je prvi i najbrojniji klaster sačinjen od video klipova koji sve atribute osim broja pregleda imaju manje od ostalih velikih klastera.
+
+Može se primetiti da se izdvojio jedan mali klaster koji sadrži vrlo neočekivane vrednosti atributa. Svi klipovi u ovom klasteru su se mnogo kasnije pojavili na trendingu,
+a imaju vrlo malo angažovanost kao i manji broj pregleda.
+
 U drugom po veličini klasteru se zapaža isti trend kao i u najmanjem klasteru dobijenim prethodno opisanim Kohonenovim klasterovanjem. Video klipovi unutar ovog klastera
 su se pojavili vrlo brzo na trendingu i imaju ogromno angažovanje. 
+
+
 
 \begin{figure}[H]
 \begin{center}
     \includegraphics[width=1\textwidth]{K-Means_category_days_after_publish.png}
     \caption{K-sredina -  kategorija i broj dana posle obljavljivanja}
-     \label{fig:asoc2}
+     \label{fig:km2}
 \end{center}
 \end{figure}
 
@@ -643,7 +649,7 @@ su se pojavili vrlo brzo na trendingu i imaju ogromno angažovanje.
 \begin{center}
     \includegraphics[width=1\textwidth]{K-Means_engagement_views_days_trending.png}
     \caption{K-sredina - angažovanost, broj pregleda i broj dana na trendingu }
-     \label{fig:asoc2}
+     \label{fig:km3}
 \end{center}
 \end{figure}
 
