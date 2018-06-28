@@ -575,6 +575,81 @@ Takođe, reči su transformisane tako da sadrže samo mala slova i da ne sadrže
 
 Klasterovanje je rađeno korišteći SPSS Modeler pošto ima robustnan sistem za taj zadatak.
 
+Podaci su sačuvani u csv formatu nakon svih obrada unutar KNIME projekta. Podaci su prethodno standardizovani tako da im bude aritmetička sredina u nuli,
+a standardno odstupanje jedan.
+
+Parametri za Kohonena su uzeti da budu 2 za širinu i 4 za visinu.
+
+
+Na prvoj slici se može videti jasna separacija klastera. Levi deo grafika čine podaci iz prvog klastera, dok donji deo čine iz četvrtog. Drugi i treći klaster se nalaze blizu koordinatnog početka, ali takođe vidljivo razdvojeni.
+
+Što se druge slike tiče, ubačena je dimenzija više, da bi se jasnije videlo grupisanje elemenata iz druge klase, dok su prva i četvrta klasa dobro grupisane i bez informacije o broju dana u trendingu.
+
+Ovo klasterovanje jasno pokazuje korelaciju između broja dana nakon objavljivanja i atributa poput angažovanosti, 
+broja lajkova i komentara. Ta informacija nam govori da klipovi koji su brzo došli na trending imaju veći odziv gledalaca od
+ klipova kojima je bilo potrebno više vremena da dođu na trending.
+
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{Kohonen.png}
+    \caption{Kohonen - rezultat klasterovanja}
+     \label{fig:asoc2}
+\end{center}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{Kohonen_engagement_days_after_publish.png}
+    \caption{Kohonen klasteri - angažovanost i broj dana posle obljavljivanja}
+     \label{fig:asoc2}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{Kohonen_engagement_views_days_trending.png}
+    \caption{Kohonen klasteri - angažovanost, broj pregleda i broj dana na trendingu}
+     \label{fig:asoc2}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{Kmeans.png}
+    \caption{K-sredina - rezultat klasterovanja}
+     \label{fig:asoc2}
+\end{center}
+\end{figure}
+
+Analizom rezultata algoritma k-sredina se vidi da je prvi i najbrojniji klaster sačinjen od video klipova koji sve atribute osim broja pregleda imaju manje od ostalih velikih klastera.
+U drugom po veličini klasteru se zapaža isti trend kao i u najmanjem klasteru dobijenim prethodno opisanim Kohonenovim klasterovanjem. Video klipovi unutar ovog klastera
+su se pojavili vrlo brzo na trendingu i imaju ogromno angažovanje. 
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{K-Means_category_days_after_publish.png}
+    \caption{K-sredina -  kategorija i broj dana posle obljavljivanja}
+     \label{fig:asoc2}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+    \includegraphics[width=1\textwidth]{K-Means_engagement_views_days_trending.png}
+    \caption{K-sredina - angažovanost, broj pregleda i broj dana na trendingu }
+     \label{fig:asoc2}
+\end{center}
+\end{figure}
+
+
+
+
 % ==============================================================================
 \section{Vizuelizacije podataka}
 \label{sec:dod}
